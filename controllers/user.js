@@ -8,10 +8,12 @@ function createUser(req, res) {
   //Validar parametros (en particular y conjunto)
   //Considerar errores
   //Que se realice la peticion por denegacion de servicio
+  //asignacion de roles
 
   const params = req.body;
 
   const user = new User({
+    name: params.name,
     email: params.email,
     role: 'TEST'
   });

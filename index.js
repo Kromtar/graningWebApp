@@ -26,3 +26,6 @@ mongoose.connect(config.mongodbHost.concat(config.dbName), {}, (err) => {
     });
   }
 });
+
+//TODO:
+//Agregar middleware para identificar tipo de usuario
