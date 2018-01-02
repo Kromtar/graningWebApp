@@ -1,9 +1,10 @@
 const express = require('express');
 const config = require('./config/config');
+const authJwt = require('./middlewares/authJwt');
 
 const app = express();
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/',authJwt.ensureAuth,(req, res) => res.send('Hello World!'));
 
 app.listen(config.serverPort, function(){
   console.log('Server ON, port:', config.serverPort);
