@@ -9,21 +9,20 @@ require('./models/User');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 require('./routes/authRoutes')(app);
 
-mongoose.connect(config.mongodbHost.concat(config.dbName), {} , (err, res) => {
-  if(err){
+mongoose.connect(config.mongodbHost.concat(config.dbName), {}, (err) => {
+  if (err) {
     throw err;
-  }else{
+  } else {
     console.log('Mongo conection OK');
 
-    app.listen(config.serverPort, function(){
+    app.listen(config.serverPort, () => {
       console.log('Server ON, port:', config.serverPort);
       console.log('The environment is', process.env.NODE_ENV);
     });
-
   }
 });

@@ -2,8 +2,8 @@ const jwt = require('jwt-simple');
 const moment = require('moment');
 const keys = require('../config/keys');
 
-exports.createToken = function(user){
-  let payload = {
+exports.createToken = function (user) {
+  const payload = {
     name: user.name,
     email: user.email,
     role: user.role,
