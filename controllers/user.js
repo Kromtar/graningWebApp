@@ -3,7 +3,7 @@ const jwt = require('../services/jwt');
 
 const User = mongoose.model('users');
 
-function createUser(req, res) {
+async function createUser(req, res) {
   //TODO:
   //Validar parametros (en particular y conjunto)
   //Considerar errores
@@ -15,18 +15,33 @@ function createUser(req, res) {
   const user = new User({
     name: params.name,
     email: params.email,
-    role: 'TEST'
+    role: 'TEST',
+    surname: 'Apellido',
+    address: 'direccion',
+    department: 'departamento',
+    company: 'Compañia',
+    phone1: 'Telefono 1',
+    phone2: 'Telefono 2',
+    creationDate: Date.now(),
+    workstation: 'Puesto de trabajo',
+    projects: 'Aqui van los proyectos'
   });
   user.password = user.generateHash(params.password);
-  user.save();
+  try {
+    await user.save();
+    res.send({});
+  } catch(err){
+    //TODO: Buscar error de respuesta
+    res.status(422).send(err);
+  }
 
-  res.send({});
 }
 
 function loginUser(req, res) {
   //Validar parametros (en particular y conjunto)
   //Considerar errores
   //Que se realice la peticion por denegacion de servicio
+  //Es necesario agregar el await ?
 
   const params = req.body;
   const email = params.email;
@@ -53,7 +68,27 @@ function loginUser(req, res) {
   });
 }
 
+async function getAllClientsUsers(req, res) {
+  //TODO:Agregar error si no logra conectarse a la db
+  const clientsUsers = await User.find(
+    { role: 'CLIENT' },
+    {
+      name: 1,
+      surname: 1,
+      company: 1,
+      phone1: 1,
+      phone2: 1,
+      creationDate: 1,
+      workstation: 1,
+      projects: 1,
+      email: 1
+    }
+  );
+  res.send(clientsUsers);
+}
+
 module.exports = {
   createUser,
-  loginUser
+  loginUser,
+  getAllClientsUsers
 };
