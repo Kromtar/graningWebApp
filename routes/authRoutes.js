@@ -10,8 +10,6 @@ module.exports = app => {
     res.send('Hola Graning :), este ligar SI necesita token');
   });
 
-  app.post('/api/createUser', UserController.createUser);
-
   app.post('/api/loginUser', UserController.loginUser);
 
   app.get('/api/validateToken', authJwt.ensureAuth, (req, res) => {

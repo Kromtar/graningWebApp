@@ -8,23 +8,21 @@ async function createUser(req, res) {
   //Validar parametros (en particular y conjunto)
   //Considerar errores
   //Que se realice la peticion por denegacion de servicio
-  //asignacion de roles
 
   const params = req.body;
 
   const user = new User({
     name: params.name,
     email: params.email,
-    role: 'TEST',
-    surname: 'Apellido',
-    address: 'direccion',
-    department: 'departamento',
-    company: 'Compañia',
-    phone1: 'Telefono 1',
-    phone2: 'Telefono 2',
+    role:  params.role,
+    surname: params.surname,
+    address:  params.address,
+    department: params.department,
+    company: params.company,
+    phone1: params.phone1,
+    phone2: params.phone2,
     creationDate: Date.now(),
-    workstation: 'Puesto de trabajo',
-    projects: 'Aqui van los proyectos'
+    workstation: params.workstation
   });
   user.password = user.generateHash(params.password);
   try {
@@ -34,7 +32,6 @@ async function createUser(req, res) {
     //TODO: Buscar error de respuesta
     res.status(422).send(err);
   }
-
 }
 
 function loginUser(req, res) {
