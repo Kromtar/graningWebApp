@@ -67,21 +67,27 @@ function loginUser(req, res) {
 
 async function getAllClientsUsers(req, res) {
   //TODO:Agregar error si no logra conectarse a la db
-  const clientsUsers = await User.find(
-    { role: 'CLIENT' },
-    {
-      name: 1,
-      surname: 1,
-      company: 1,
-      phone1: 1,
-      phone2: 1,
-      creationDate: 1,
-      workstation: 1,
-      projects: 1,
-      email: 1
-    }
-  );
-  res.send(clientsUsers);
+  try {
+    const clientsUsers = await User.find(
+      { role: 'CLIENT' },
+      {
+        name: 1,
+        surname: 1,
+        company: 1,
+        phone1: 1,
+        phone2: 1,
+        creationDate: 1,
+        workstation: 1,
+        projects: 1,
+        email: 1
+      }
+    );
+    console.log(clientsUsers);
+    res.send(clientsUsers);
+  } catch(err){
+    //TODO: Buscar error de respuesta
+    res.status(422).send(err);
+  }
 }
 
 module.exports = {

@@ -4,77 +4,32 @@ const Projects = mongoose.model('projects');
 const Users = mongoose.model('users');
 
 async function createProject(req, res){
-  console.log('Creado modelo de project TEST');
 
+  function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+  }
 
-  //CREA UN PROYECTO
-  /*
   const project = new Projects({
-    name: 'Nombre2',
-    internalcode: 'codigo interno2',
-    proyectnumber: 'numero proyecto2',
-    contractnumber: 'numero contrato2',
-    purchaseordernumber: 'numero orden de compra2',
-    openprojectdate: Date.now(),
-    closeprojectdate: Date.now(),
-    term: 120,
-    state: 'open',
-    _stage: {
-      name: 'stage name2',
-      _review: {
-        name: 'review name2'
-      }
-    }
+    name: req.body.name,
+    internalcode: req.body.internalcode,
+    proyectnumber: req.body.proyectnumber,
+    contractnumber: req.body.contractnumber,
+    purchaseordernumber: req.body.purchaseordernumber,
+    openprojectdate: toDate(req.body.openprojectdate),
+    term: req.body.term,
   });
 
-
-  //TODO: Agregar error de coneccion con DB
-  await project.save();
-  */
-
-
-  //AGREGA UNA ETAPA A UN PROYECTO
-  /*
-  Projects.updateOne(
-    {
-      _id: '5a4e89ac4478572354b567e0'
-    },
-    {
-      $addToSet: {
-        _stage: {
-          name: 'stage name 2'
-        }
-      }
-    }
-  ).exec();
-  */
-
-  //AGREGA UN PROYECTO A UN USER
-  /*
-  Users.updateOne(
-    {
-      _id: '5a4e91559d7ea43eac15c9fb'
-    },
-    {
-      $addToSet: {
-        _projects: '5a4e89ac4478572354b567e0'
-      }
-    }
-  ).exec();
-  */
-
-
-  //BUSCA TODA LA INFO DE UN USER
-  /*
-  Users.findById('5a4e91559d7ea43eac15c9fb').populate('_projects').exec((err, data) => {
-    console.log(data);
-    res.send(data);
-  });
-  */
-
-  res.send({});
+  try {
+    await project.save();
+    res.send({});
+  } catch(err){
+    //TODO: Buscar error de respuesta
+    res.status(422).send(err);
+  }
 }
 
+//TODO:Agregar el try
 async function getAllProjects(req, res){
   const projects = await Projects.find(
     {},
@@ -90,7 +45,35 @@ async function getAllProjects(req, res){
   res.send(projects);
 }
 
+async function getProjectDetail(req, res){
+  Projects.findOne({ _id: req.headers.id }, (err, project) => {
+    if (err) {
+      res.status(500).send({ message: 'DB connection error' });
+    } else if (!project){
+      res.status(404).send({ message: 'Invalid project id' });
+    } else {
+      res.status(200).send(project);
+    }
+  });
+}
+
+//TODO: Ocupar esta estrucutra en las pet tipo find
+async function getClientsFromProject(req, res){
+    const clientsFromProject = Users.find(
+      {_projects: req.headers.id},
+      {name: 1, surname: 1, company: 1, email: 1, phone1: 1},
+      (err, clients) => {
+      if(err){
+        res.status(404).send({ message: 'Invalid project id' });
+      }else{
+        res.send(clients);
+      }
+    });
+}
+
 module.exports = {
   createProject,
-  getAllProjects
+  getAllProjects,
+  getProjectDetail,
+  getClientsFromProject
 };
