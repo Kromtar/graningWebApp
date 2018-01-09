@@ -71,9 +71,79 @@ async function getClientsFromProject(req, res){
     });
 }
 
+//Edita informacion general de un proyecto
+async function updateProjectGeneral(req, res){
+
+  function toDate(dateStr) {
+    var parts = dateStr.split("-");
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+  }
+
+  req.body.openprojectdate = req.body.openprojectdate ? toDate(req.body.openprojectdate) : null;
+  req.body.closeprojectdate = req.body.closeprojectdate ? toDate(req.body.closeprojectdate) : null;
+
+  Projects.findByIdAndUpdate(req.headers.id, req.body, (err, updateProject) => {
+    if(err){
+      res.status(500).send({ message: 'Error en la peticion' });
+    }else{
+      if(!updateProject){
+        res.status(404).send({ message: 'No se pudo updatear la cancion en la db' });
+      }else{
+        res.status(200).send(updateProject);
+      }
+    }
+  });
+}
+
+//Añade etapas a un proyecto
+async function addStageToProject(req, res){
+
+  try{
+    //TODO: Manejo de error
+    const update = await Projects.updateOne(
+     {
+       _id: req.headers.id
+     },
+     {
+         $addToSet: {
+           _stage: { $each: req.body }
+         }
+       }
+     ).exec();
+    res.send({});
+ } catch (err){
+   res.status(422).send(err);
+ }
+}
+
+async function deleteStageFromProject(req, res){
+
+  try{
+    //TODO: Manejo de error
+    const update = await Projects.updateOne(
+    {
+      _id: req.headers.id
+    },
+    {
+     $pull: {
+       _stage: { _id: { $in: req.body } }
+     }
+    }
+    ).exec();
+
+    res.send({});
+
+  } catch (err){
+    res.status(422).send(err);
+  }
+}
+
 module.exports = {
   createProject,
   getAllProjects,
   getProjectDetail,
-  getClientsFromProject
+  getClientsFromProject,
+  updateProjectGeneral,
+  addStageToProject,
+  deleteStageFromProject
 };

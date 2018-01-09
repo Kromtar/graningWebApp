@@ -8,5 +8,8 @@ module.exports = app => {
   app.post('/api/createProject',authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.createProject);
   app.get('/api/allProjects',authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.getAllProjects);
   app.get('/api/getProjectDetail', authJwt.ensureAuth, ProjectController.getProjectDetail);
-  app.get('/api/getClientsFromProject', ProjectController.getClientsFromProject);
+  app.get('/api/getClientsFromProject',authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.getClientsFromProject);
+  app.put('/api/updateProjectGeneral',authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.updateProjectGeneral);
+  app.put('/api/addStageToProject',authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.addStageToProject);
+  app.put('/api/deleteStageFromProject', ProjectController.deleteStageFromProject);
 };
