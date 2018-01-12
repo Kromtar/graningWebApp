@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const stageSchema = require('./Stage');
-
 const projectSchema = new Schema({
   name: String,
   internalcode: { type: 'String', unique: true },
@@ -13,7 +11,7 @@ const projectSchema = new Schema({
   openprojectdate: Date,
   closeprojectdate: Date,
   term: Number,
-  _stage: [stageSchema],
+  _stage: [{ type: Schema.Types.ObjectId, ref: 'stages' }],
   state: String,
   finished: { type: Boolean, default: false }
 });

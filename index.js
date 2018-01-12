@@ -7,6 +7,8 @@ mongoose.Promise = global.Promise;
 
 require('./models/User');
 require('./models/Project');
+require('./models/Stage');
+require('./models/Review');
 
 const app = express();
 

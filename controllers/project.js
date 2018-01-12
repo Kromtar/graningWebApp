@@ -3,6 +3,8 @@ const _ = require('lodash');
 
 const Projects = mongoose.model('projects');
 const Users = mongoose.model('users');
+const Stages = mongoose.model('stages');
+const Reviews = mongoose.model('reviews');
 
 async function createProject(req, res){
 
@@ -47,15 +49,9 @@ async function getAllProjects(req, res){
 }
 
 async function getProjectDetail(req, res){
-  Projects.findOne({ _id: req.headers.id }, (err, project) => {
-    if (err) {
-      res.status(500).send({ message: 'DB connection error' });
-    } else if (!project){
-      res.status(404).send({ message: 'Invalid project id' });
-    } else {
-      res.status(200).send(project);
-    }
-  });
+  //TODO:Manejo de errores
+  const project = await Projects.findOne({ _id: req.headers.id }).populate({path: '_stage', populate: {path: '_review'} });
+  res.send(project);
 }
 
 //TODO: Ocupar esta estrucutra en las pet tipo find
@@ -99,18 +95,36 @@ async function updateProjectGeneral(req, res){
 //Añade etapas a un proyecto
 async function addStageToProject(req, res){
 
+
+
   try{
-    //TODO: Manejo de error
-    const update = await Projects.updateOne(
-     {
-       _id: req.headers.id
-     },
-     {
-         $addToSet: {
-           _stage: { $each: req.body }
-         }
+    //TODO: Manejo de error, error si se tratan de guardar mas de 2 stages
+    //por cada nueva stage hay que crear una nueva
+
+    for(var key in req.body){
+
+      const stage = new Stages({
+        name: req.body[key].name,
+        _project: req.headers.id
+      });
+
+      //acumular todas las respuestas
+      const newStage = await stage.save();
+
+      //relacionar todas las nuevas stages
+      const updatedProject = await Projects.updateOne(
+      {
+        _id: req.headers.id
+      },
+      {
+       $push: {
+         _stage: newStage._id
        }
-     ).exec();
+      }
+      ).exec();
+
+    }
+
     res.send({});
  } catch (err){
    res.status(422).send(err);
@@ -119,24 +133,23 @@ async function addStageToProject(req, res){
 
 //Elimina etapas de un proyecto
 async function deleteStageFromProject(req, res){
-  try{
-    //TODO: Manejo de error
-    const update = await Projects.updateOne(
-    {
-      _id: req.headers.id
-    },
-    {
-     $pull: {
-       _stage: { _id: { $in: req.body } }
-     }
-    }
-    ).exec();
 
-    res.send({});
+  const stagesDeleted = await Stages.remove({'_id':{'$in':req.body}});
 
-  } catch (err){
-    res.status(422).send(err);
+  const reviewDeleted = await Reviews.remove({'_stage':{'$in':req.body}});
+
+  const update = await Projects.updateOne(
+  {
+    _id: req.headers.id
+  },
+  {
+   $pull: {
+     _stage: { $in: req.body }
+   }
   }
+  ).exec();
+
+  res.send({});
 }
 
 //TODO: REMOVER FOR Y HACERLO IN PLACE, ver manejo de errores
@@ -149,25 +162,30 @@ async function addRevsToProject(req, res){
   }
 
   try{
-
     for (var key in req.body) {
-      var obj = req.body[key];
+      const review = await new Reviews({
+        name: req.body[key].data.name,
+        companytoclientdate: req.body[key].data.companytoclientdate ? toDateWhitSlash(req.body[key].data.companytoclientdate) : null,
+        clienttocompany: req.body[key].data.clienttocompany ? toDateWhitSlash(req.body[key].data.clienttocompany) : null,
+        _stage: req.body[key].stageId,
+        _project: req.headers.id
+      });
 
-      obj.data.companytoclientdate = obj.data.companytoclientdate ? toDateWhitSlash(obj.data.companytoclientdate) : null;
-      obj.data.clienttocompany = obj.data.clienttocompany ? toDateWhitSlash(obj.data.clienttocompany) : null;
+      const newReview = await review.save();
 
-      const update = await Projects.updateOne(
+      const updatedStaege = await Stages.updateOne(
       {
-        _id: req.headers.id,
-        '_stage._id': obj.stageId,
-      },{
-        $push: { '_stage.$._review': obj.data }
+        _id: req.body[key].stageId
+      },
+      {
+       $push: {
+         _review: newReview._id
+       }
       }
       ).exec();
-    }
 
-    res.send({});
-  } catch(err){
+      res.send({});
+  }} catch(err){
     res.status(422).send(err);
   }
 }
@@ -175,18 +193,20 @@ async function addRevsToProject(req, res){
 //Elimina rev de una etapa de un proyecto
 //TODO: REMOVER FOR Y HACERLO IN PLACE, ver manejo de errores
 async function deleteRevFromProject(req, res){
-
   try{
     for (var key in req.body) {
       var obj = req.body[key];
 
-      const update = await Projects.update(
+      const reviewDeleted = await Reviews.remove({ '_id':req.body[key].idRev })
+
+      const update = await Stages.updateOne(
       {
-        _id: req.headers.id,
-        '_stage._id': obj.idStage,
+        _id: req.body[key].idStage
       },
       {
-        $pull: { '_stage.$._review': { _id: obj.idRev } }
+       $pull: {
+         _review: req.body[key].idRev
+       }
       }
       ).exec();
 
@@ -200,19 +220,31 @@ async function deleteRevFromProject(req, res){
 
 //Edita revs de un proyecto
 //TODO: REMOVER FOR Y HACERLO IN PLACE, ver manejo de errores
+//TODO: ERROR AL ACTUALIZAR FECHA REV
 async function editRevFromProject(req, res){
-
-  console.log(req.headers.id);
-  console.log(req.body);
-
 
   //try{
     for (var stage in req.body) {
       var obj = req.body[stage];
 
       for (var review in obj) {
-        console.log(req.body[stage][review].name);
-        console.log('En Stage', stage, 'En Rev' ,review);
+
+        console.log(req.body[stage][review].clienttocompany);
+
+
+        const updatedReview = await Reviews.updateOne(
+        {
+          _id: review
+        },
+        {
+         $set: {
+           'name': req.body[stage][review].name,
+           'companytoclientdate': req.body[stage][review].companytoclientdate,
+           'clienttocompany:':'2018-01-25T03:00:00.000Z',
+         }
+        }
+        ).exec();
+
       }
     }
 

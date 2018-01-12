@@ -6,5 +6,5 @@ const UserController = require('../controllers/user');
 
 module.exports = app => {
   app.get('/api/allClients', authJwt.ensureAuth, roleChecker.ensureRole, UserController.getAllClientsUsers);
-  app.post('/api/createUser', authJwt.ensureAuth, roleChecker.ensureRole, UserController.createUser);
+  app.post('/api/createUser', UserController.createUser);
 };
