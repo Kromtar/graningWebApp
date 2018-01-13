@@ -82,7 +82,6 @@ async function getAllClientsUsers(req, res) {
         email: 1
       }
     );
-    console.log(clientsUsers);
     res.send(clientsUsers);
   } catch(err){
     //TODO: Buscar error de respuesta
@@ -90,8 +89,34 @@ async function getAllClientsUsers(req, res) {
   }
 }
 
+async function getClientDetail(req, res){
+  //TODO:Manejo de errores
+  const user = await User.findOne({ _id: req.headers.id }).populate({path: '_projects' });
+  //res.send(project);
+  res.send(user);
+}
+
+async function addProjectToClient(req, res){
+  console.log(req.body);
+
+  const update = await User.updateOne(
+  {
+    _id: req.body.clientId
+  },
+  {
+   $push: {
+     _projects: req.body.projectId
+   }
+  }
+  ).exec();
+
+  res.send({});
+}
+
 module.exports = {
   createUser,
   loginUser,
-  getAllClientsUsers
+  getAllClientsUsers,
+  getClientDetail,
+  addProjectToClient
 };

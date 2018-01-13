@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const projectSchema = new Schema({
   name: String,
   internalcode: { type: 'String', unique: true },
-  proyectnumber: { type: 'String', unique: true },
+  proyectnumber: String,
   contractnumber: String,
   purchaseordernumber: String,
   openprojectdate: Date,
