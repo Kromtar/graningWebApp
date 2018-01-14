@@ -13,7 +13,8 @@ const projectSchema = new Schema({
   term: Number,
   _stage: [{ type: Schema.Types.ObjectId, ref: 'stages' }],
   state: String,
-  finished: { type: Boolean, default: false }
+  finished: { type: Boolean, default: false },
+  url: String
 });
 
 

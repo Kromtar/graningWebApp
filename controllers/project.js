@@ -221,6 +221,7 @@ async function deleteRevFromProject(req, res){
 //Edita revs de un proyecto
 //TODO: REMOVER FOR Y HACERLO IN PLACE, ver manejo de errores
 //TODO: ERROR AL ACTUALIZAR FECHA REV
+//TODO: Implementar try
 async function editRevFromProject(req, res){
 
   //try{
@@ -251,6 +252,23 @@ async function editRevFromProject(req, res){
   res.send({});
 }
 
+//Agrega un link a un project
+async function addLinkToPtoject(req, res){
+
+  const updatedReview = await Projects.updateOne(
+  {
+    _id: req.body.projectId
+  },
+  {
+   $set: {
+     'url': req.body.link,
+   }
+  }
+  ).exec();
+
+
+  res.send({});
+}
 
 module.exports = {
   createProject,
@@ -262,5 +280,6 @@ module.exports = {
   deleteStageFromProject,
   addRevsToProject,
   deleteRevFromProject,
-  editRevFromProject
+  editRevFromProject,
+  addLinkToPtoject
 };

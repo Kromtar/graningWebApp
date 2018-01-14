@@ -97,7 +97,6 @@ async function getClientDetail(req, res){
 }
 
 async function addProjectToClient(req, res){
-  console.log(req.body);
 
   const update = await User.updateOne(
   {
@@ -113,10 +112,30 @@ async function addProjectToClient(req, res){
   res.send({});
 }
 
+async function removeProjectToClient(req, res){
+
+
+  const update = await User.updateOne(
+  {
+    _id: req.body.clientId
+  },
+  {
+   $pull: {
+     _projects: req.body.projectId
+   }
+  }
+  ).exec();
+
+
+  res.send({});
+
+}
+
 module.exports = {
   createUser,
   loginUser,
   getAllClientsUsers,
   getClientDetail,
-  addProjectToClient
+  addProjectToClient,
+  removeProjectToClient
 };

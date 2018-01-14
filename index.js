@@ -21,6 +21,7 @@ app.use(function (req, res, next) {
 
 });
 
+app.disable('etag');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
