@@ -252,8 +252,26 @@ async function editRevFromProject(req, res){
   res.send({});
 }
 
-//Agrega un link a un project
+//Agrega un link y name a un project
 async function addLinkToPtoject(req, res){
+
+  const updatedReview = await Projects.updateOne(
+  {
+    _id: req.body.data.projectId
+  },
+  {
+   $set: {
+     'url': req.body.data.link,
+     'filename': req.body.name,
+   }
+  }
+  ).exec();
+
+  res.send({});
+}
+
+//Elimina un link y name a un project
+async function deleteLinkFromProject(req, res){
 
   const updatedReview = await Projects.updateOne(
   {
@@ -261,14 +279,16 @@ async function addLinkToPtoject(req, res){
   },
   {
    $set: {
-     'url': req.body.link,
+     'url': null,
+     'filename': null,
    }
   }
   ).exec();
 
-
   res.send({});
+
 }
+
 
 module.exports = {
   createProject,
@@ -281,5 +301,6 @@ module.exports = {
   addRevsToProject,
   deleteRevFromProject,
   editRevFromProject,
-  addLinkToPtoject
+  addLinkToPtoject,
+  deleteLinkFromProject
 };

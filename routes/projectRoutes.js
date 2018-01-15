@@ -15,5 +15,6 @@ module.exports = app => {
   app.put('/api/addRevsToProject', authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.addRevsToProject); //OK
   app.put('/api/deleteRevFromProject', authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.deleteRevFromProject); //OK
   app.put('/api/editRevFromProject', authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.editRevFromProject); //OK
-  app.post('/api/addLinkToPtoject', ProjectController.addLinkToPtoject);
+  app.post('/api/addLinkToPtoject',  authJwt.ensureAuth, roleChecker.ensureRole, ProjectController.addLinkToPtoject); //OK
+  app.post('/api/deleteLinkFromProject', ProjectController.deleteLinkFromProject);
 };
