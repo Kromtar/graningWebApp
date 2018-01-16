@@ -12,16 +12,15 @@ require('./models/Review');
 
 const app = express();
 
-app.use(function (req, res, next) {
-
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, auth, id");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization, auth, id'
+  );
   next();
-
 });
-
-app.disable('etag');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -29,6 +28,15 @@ app.use(bodyParser.json());
 require('./routes/authRoutes')(app);
 require('./routes/clientRoutes')(app);
 require('./routes/projectRoutes')(app);
+
+
+app.use(express.static('client/build'));
+
+//Bypass de API
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
 mongoose.connect(config.mongodbHost.concat(config.dbName), {}, (err) => {
   if (err) {
@@ -42,6 +50,3 @@ mongoose.connect(config.mongodbHost.concat(config.dbName), {}, (err) => {
     });
   }
 });
-
-//TODO:
-//Agregar middleware para identificar tipo de usuario

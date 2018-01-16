@@ -230,9 +230,6 @@ async function editRevFromProject(req, res){
 
       for (var review in obj) {
 
-        console.log(req.body[stage][review].clienttocompany);
-
-
         const updatedReview = await Reviews.updateOne(
         {
           _id: review
