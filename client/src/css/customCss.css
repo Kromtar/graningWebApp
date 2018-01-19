@@ -85,3 +85,41 @@ input:focus {
 input {
   border-bottom: 1px solid #0066cc !important;
 }
+
+.rt-thead.-header {
+  background-color: #a09fa2 !important;
+}
+
+.ReactTable {
+  border-color: #a09fa2 !important;
+}
+
+.ReactTable > .rt-table {
+  background: rgba(239, 252, 251, 0.1) !important;
+}
+
+.pagination-bottom {
+  background-color: #a09fa2 !important;
+  height: 50px !important;
+}
+
+.-pagination input {
+  padding: 0px !important;
+}
+.-pagination {
+  height: 50px !important;
+}
+
+.-btn {
+  color: rgb(0, 0, 0) !important;
+  background-color: #ffffff !important;
+}
+
+.-pageInfo {
+  height: 48px !important;
+}
+
+.card-title {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}

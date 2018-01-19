@@ -19,26 +19,31 @@ class Clientes extends Component {
 
     const desktopVersion = (
       <div className="row z-depth-5" style={{background: '#a09fa2'}}>
-        <div className="col s1 center-align">
-          <p className="flow-text" style={{color: 'black', paddingLeft: '65px', paddingRight: '0px'}}>
-            Clientes:
-          </p>
+        <div className="row" style={{marginBottom: '0px'}}>
+          <div className="col s12 center-align">
+            <p className="flow-text" style={{color: 'black', fontWeight: '400'}}>
+              Nuestros Clientes
+            </p>
+          </div>
         </div>
-        <div className="col s2 center-align" style={{marginTop: '-5px'}}>
-          <Fade right big><img alt="esval" src={esval}/></Fade>
+        <div className="row" style={{marginBottom: '0px'}}>
+          <div className="col m4 center-align" style={{}}>
+            <img alt="esval" src={esval}/>
+          </div>
+          <div className="col m4 center-align" style={{marginTop: '14px'}}>
+            <img alt="aguasdelvalle" src={aguasdelvalle}/>
+          </div>
+          <div className="col m4 center-align" style={{marginTop: '-10px'}}>
+            <img alt="aguasdelaltiplano" src={aguasdelaltiplano}/>
+          </div>
+          <div className="col m6 center-align" style={{}}>
+            <img alt="essbio" src={essbio}/>
+          </div>
+          <div className="col m6 center-align" style={{}}>
+            <img alt="aguasaraucania" src={aguasaraucania}/>
+          </div>
         </div>
-        <div className="col s2 center-align">
-          <Fade delay={500} right big><img alt="essbio" src={essbio}/></Fade>
-        </div>
-        <div className="col s2 center-align" style={{marginTop: '-13px'}}>
-          <Fade delay={1000} right big><img alt="aguasdelaltiplano" src={aguasdelaltiplano}/></Fade>
-        </div>
-        <div className="col s2 center-align" style={{marginTop: '10px'}}>
-          <Fade delay={1500} right big><img alt="aguasdelvalle" src={aguasdelvalle}/></Fade>
-        </div>
-        <div className="col s2 center-align" style={{marginTop: '-4px'}}>
-          <Fade delay={2000} right big><img alt="aguasaraucania" src={aguasaraucania}/></Fade>
-        </div>
+
       </div>
     );
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
+import $ from 'jquery';
 
 import Fade from 'react-reveal/Fade';
 
@@ -9,6 +10,10 @@ import equipo from '../../media/photos/mainphoto.jpg';
 import pin from '../../media/photos/pin.png';
 
 class Equipo extends Component {
+
+  componentDidMount(){
+    $('.matchHeight').matchHeight();
+  }
 
   render(){
 
@@ -35,21 +40,25 @@ class Equipo extends Component {
 
         <div className="row" style={{marginTop: '60px'}}>
 
-            <div className="col s2 offset-s1 center-align" style={{position: 'relative', marginTop: '25px'}}>
-              <div className="row">
-                <img alt="fundador" src={equipo} className="circle z-depth-2" style={{width: '200px', height: '200px'}}/>
-              </div>
-              <div className="row center-align" style={{color: 'white'}}>
-                <p style={{marginBottom: '0px'}}><b>MAURICIO CORREA</b></p>
-                <p style={{marginTop: '0px'}}><i>Gerente general</i></p>
+            <div className="col s3 center-align matchHeight" style={{position: 'relative', marginTop: '25px'}}>
+              <div className="matchHeight" style={{display: 'inline-table', overflow: 'hidden'}}>
+                <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+                  <div className="row">
+                    <img alt="fundador" src={equipo} className="circle z-depth-2" style={{width: '171px', height: '171px'}}/>
+                  </div>
+                  <div className="row center-align" style={{color: 'white'}}>
+                    <p style={{marginBottom: '0px'}}><b>MAURICIO CORREA</b></p>
+                    <p style={{marginTop: '0px'}}><i>Gerente general</i></p>
+                  </div>
+                </div>
               </div>
             </div>
 
 
-            <div className="col s8 left-align" style={{color: 'white'}}>
-              <h5><p>{bioText1}</p></h5>
-              <p className="flow-text">{bioText2}</p>
-              <p className="flow-text">{bioText3}</p>
+            <div className="col s9 left-align matchHeight" style={{color: 'white'}}>
+              <h5><p style={{position: 'relative'}}>{bioText1}</p></h5>
+              <p className="flow-text" style={{position: 'relative'}}>{bioText2}</p>
+              <p className="flow-text" style={{position: 'relative'}}>{bioText3}</p>
             </div>
 
         </div>

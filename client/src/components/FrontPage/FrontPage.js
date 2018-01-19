@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import { connect } from 'react-redux';
 import { Link, Element } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom';
+import Responsive from 'react-responsive';
 
 import Zoom  from 'react-reveal/Zoom';
 import ScrollingColorBackground from 'react-scrolling-color-background';
+import pin from '../../media/photos/pin.png';
 
 import Parallax from './Parallax';
 import Servicios from './Servicios';
@@ -18,51 +21,113 @@ import logo from '../../media/photos/logo.png';
 
 class FrontPage extends Component {
 
+  componentDidMount(){
+    $('.button-collapse').sideNav({
+      draggable: true,
+      closeOnClick: true
+    });
+  }
+
   render(){
+
+      const Mobile = props => <Responsive {...props} maxWidth={992} />;
+      const Default = props => <Responsive {...props} minWidth={993} />;
+
       return(
         <div>
-          <nav>
-            <div className="nav-wrapper">
-              <Link style={{cursor: 'pointer'}} className="brand-logo" to="parallax" spy={true} smooth={true} duration={500} isDynamic={true}>
+
+          <Default>
+            <nav>
+              <div className="nav-wrapper">
+                <Link style={{cursor: 'pointer'}} className="brand-logo" to="parallax" spy={true} smooth={true} duration={500} isDynamic={true}>
+                  <Zoom><img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/></Zoom>
+                </Link>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li>
+                    <Link style={{color: '#00305b'}} to="test1" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}> {/* 64 tamaño de navbar */}
+                      SERVICIOS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={{color: '#00305b'}} to="test2" spy={true} smooth={'easeInCubic'} offset={-130} duration={500} isDynamic={true}>
+                      PROYECTOS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={{color: '#00305b'}} to="test3" spy={true} smooth={'easeInCubic'} offset={-70} duration={500} isDynamic={true}>
+                      QUIENES SOMOS
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={{color: '#00305b'}} to="test4" spy={true} smooth={'easeInCubic'} offset={-150} duration={500} isDynamic={true}>
+                      EQUIPO
+                    </Link>
+                  </li>
+                  <li>
+                    <Link style={{color: '#00305b'}} to="test5" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
+                      CONTACTO
+                    </Link>
+                  </li>
+                  <li>
+                    <RouterLink
+                      to={'/clientportal'}
+                      style={{color: '#00305b'}}
+                    >
+                      PORTAL CLIENTE
+                    </RouterLink>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </Default>
+
+          <Mobile>
+            <nav>
+              <div className="nav-wrapper">
+                <a data-activates="slide-out" className="button-collapse"><i className="material-icons" style={{color: '#ff6600', fontSize: '40px', lineHeight: '86px'}}>menu</i></a>
                 <Zoom><img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/></Zoom>
-              </Link>
-              <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
-                  <Link style={{color: '#00305b'}} to="test1" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}> {/* 64 tamaño de navbar */}
-                    SERVICIOS
-                  </Link>
-                </li>
-                <li>
-                  <Link style={{color: '#00305b'}} to="test2" spy={true} smooth={'easeInCubic'} offset={-130} duration={500} isDynamic={true}>
-                    PROYECTOS
-                  </Link>
-                </li>
-                <li>
-                  <Link style={{color: '#00305b'}} to="test3" spy={true} smooth={'easeInCubic'} offset={-70} duration={500} isDynamic={true}>
-                    QUIENES SOMOS
-                  </Link>
-                </li>
-                <li>
-                  <Link style={{color: '#00305b'}} to="test4" spy={true} smooth={'easeInCubic'} offset={-150} duration={500} isDynamic={true}>
-                    EQUIPO
-                  </Link>
-                </li>
-                <li>
-                  <Link style={{color: '#00305b'}} to="test5" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
-                    CONTACTO
-                  </Link>
-                </li>
-                <li>
-                  <RouterLink
-                    to={'/clientportal'}
-                    style={{color: '#00305b'}}
-                  >
-                    PORTAL CLIENTE
-                  </RouterLink>
-                </li>
-              </ul>
-            </div>
-          </nav>
+              </div>
+            </nav>
+            <ul id="slide-out" className="side-nav" style={{zIndex: '1000'}}>
+              <li>
+                <div className="center-align" style={{height: '88px', paddingTop: '20px'}}>
+                  <a>
+                    <img alt="pin" src={pin}/>
+                  </a>
+                </div>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="parallax" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
+                  PORTADA
+                </Link>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="test1" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
+                  SERVICIOS
+                </Link>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="test2" spy={true} smooth={'easeInCubic'} offset={-130} duration={500} isDynamic={true}>
+                  PROYECTOS
+                </Link>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="test3" spy={true} smooth={'easeInCubic'} offset={-100} duration={500} isDynamic={true}>
+                  QUIENES SOMOS
+                </Link>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="test4" spy={true} smooth={'easeInCubic'} offset={-150} duration={500} isDynamic={true}>
+                  EQUIPO
+                </Link>
+              </li>
+              <li>
+                <Link style={{color: '#00305b'}} to="test5" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
+                  CONTACTO
+                </Link>
+              </li>
+            </ul>
+          </Mobile>
 
 
           <ScrollingColorBackground

@@ -32,7 +32,7 @@ class Proyectos extends Component {
           </p>
         </div>
         <div className="row" style={{marginTop: '35px'}}>
-          <div className="col s6 offset-s3 hoverable z-depth-2" style={{paddingLeft: '0px', paddingRight: '0px'}}>
+          <div className="col m10 l6 offset-m1 offset-l3 hoverable z-depth-2" style={{paddingLeft: '0px', paddingRight: '0px'}}>
             <Carousel
               showThumbs={false}
               infiniteLoop

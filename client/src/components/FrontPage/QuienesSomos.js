@@ -2,10 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 import Zoom from 'react-reveal/Zoom';
+import matchHeight from 'jquery-match-height';
+import $ from 'jquery';
 
 import equipoTest from '../../media/photos/proyectoTest.jpg';
 
 class QuienesSomos extends Component {
+
+  componentDidMount(){
+    $('.matchHeight').matchHeight();
+  }
 
   render(){
 
@@ -16,7 +22,7 @@ class QuienesSomos extends Component {
 
     const desktopVersion = (
       <div className="row">
-        <div className="col s4">
+        <div className="col s4 matchHeight">
           <div className="row center-align">
             <div style={{marginTop: '60px', position: 'relative'}}>
               <h4><b>QUIENES SOMOS</b></h4>
@@ -28,17 +34,21 @@ class QuienesSomos extends Component {
             </div>
           </div>
           <div className="row center-align" style={{marginTop: '40px'}}>
-            <img alt="equipo" className="z-depth-2" src={equipoTest} style={{width: '448px', position: 'relative'}}/>
+            <img alt="equipo" className="z-depth-2" src={equipoTest} style={{width: '100%', position: 'relative'}}/>
           </div>
         </div>
-        <div className="col s8" style={{paddingRight: '150px', marginTop: '160px'}}>
-          <h5>
-            <Zoom duration={800}>
-              <p className="flow-text" style={{lineHeight: '150%'}}>
-                {longText}
-              </p>
-            </Zoom>
-          </h5>
+        <div className="col s8 matchHeight">
+          <div className="matchHeight" style={{display: 'table', overflow: 'hidden'}}>
+            <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
+              <h5>
+                <Zoom duration={800}>
+                  <p className="flow-text" style={{lineHeight: '150%'}}>
+                    {longText}
+                  </p>
+                </Zoom>
+              </h5>
+            </div>
+          </div>
         </div>
       </div>
     );

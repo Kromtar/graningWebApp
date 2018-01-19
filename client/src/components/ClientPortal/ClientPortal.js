@@ -18,7 +18,7 @@ class ClientPortal extends Component {
   }
 
   renderPortal(){
-    if(this.props.loginUserState.status){
+    if(this.props.loginUserStatus.status){
       return (
         <MainPanel />
       );
@@ -39,8 +39,7 @@ class ClientPortal extends Component {
 };
 
 function mapStateToProps(state){
-  console.log(state);
-  return { loginUserState: state.loginUserState };
+  return { loginUserStatus: state.loginUserStatus };
 };
 
 export default connect(mapStateToProps, actions)(ClientPortal);

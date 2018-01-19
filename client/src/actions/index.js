@@ -1,1 +1,2 @@
 export * from './user_actions';
+export * from './windows_actions';

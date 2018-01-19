@@ -25,7 +25,7 @@ class Servicios extends Component {
         <div className="col s12" style={{marginTop: '45px', marginBottom: '37px'}}>
 
           <div className="row">
-            <div className="col s3 center-align" style={{marginTop: '100px', position: 'relative' }}>
+            <div className="col s6 m6 l12 xl3 center-align" style={{position: 'relative' }}>
               <h4 style={{color: 'white'}}><b>SERVICIOS</b></h4>
               <div className="row center-align">
                 <div className="col s8 offset-s2" style={{position: 'relative'}}>
@@ -36,17 +36,17 @@ class Servicios extends Component {
                 leyenda de la tematica, tiene que ser de este lago aproximadamente
               </p>
             </div>
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="obra" className="activator" src={obra}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Planes de Desarrollo</li>
                       <li><div id="dot"/>Conducción e impulsión de fluidos</li>
@@ -58,17 +58,17 @@ class Servicios extends Component {
                 </div>
             </Zoom>
             </div>
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom delay={300}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="hidro" className="activator" src={hidro}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>HIDROLOGÍA<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">HIDROLOGÍA<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>HIDROLOGÍA<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">HIDROLOGÍA<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Explotación y cuantificación de recursos de agua subterránea</li>
                       <li><div id="dot"/>Cuantificación de las demandas</li>
@@ -80,17 +80,17 @@ class Servicios extends Component {
                 </div>
               </Zoom>
             </div>
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom delay={600}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="test" className="activator" src={servicioTest}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Inspección y Control de Obras</li>
                     </ul>
@@ -101,17 +101,17 @@ class Servicios extends Component {
           </div>
 
           <div className="row">
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom delay={900}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="test" className="activator" src={servicioTest}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Planes de Desarrollo</li>
                       <li><div id="dot"/>Diseño de P.T.A.S</li>
@@ -122,17 +122,17 @@ class Servicios extends Component {
                 </div>
               </Zoom>
             </div>
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom delay={1200}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="urba" className="activator" src={urba}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>URBANIZACIÓN<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">URBANIZACIÓN<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>URBANIZACIÓN<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">URBANIZACIÓN<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Planes diseño de arquitectura, estructural, pavimentos</li>
                       <li><div id="dot"/>Evacuación de aguas lluvias, agua potable, alcantarillado</li>
@@ -143,17 +143,17 @@ class Servicios extends Component {
                 </div>
               </Zoom>
             </div>
-            <div className="col s3">
+            <div className="col s6 m6 l4 xl3">
               <Zoom delay={1500}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
                     <img alt="test" className="activator" src={servicioTest}/>
                   </div>
                   <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OTROS<i className="material-icons right">arrow_upward</i></span>
+                    <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>
                   </div>
                   <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OTROS<i className="material-icons right">arrow_downward</i></span>
+                    <span className="card-title grey-text text-darken-4">OTROS<i className="material-icons right">arrow_downward</i></span>
                     <ul style={{marginTop: '25px'}}>
                       <li><div id="dot"/>Proyectos de canales y obras de arte</li>
                       <li><div id="dot"/>Diseño arquitectónico y estructural de obras de acero y hormigón armado</li>
@@ -163,7 +163,7 @@ class Servicios extends Component {
                 </div>
               </Zoom>
             </div>
-            <div className="col s3 center-align" style={{marginTop: '160px' }}>
+            <div className="col s6 m6 l12 xl3 center-align" style={{marginTop: '10%' }}>
               <Flip duration={3000}><img alt="pin" src={pin}/></Flip>
             </div>
           </div>
@@ -190,13 +190,13 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={obra}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Planes de Desarrollo</li>
                   <li><div id="dot"/>Conducción e impulsión de fluidos</li>
@@ -210,13 +210,13 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={hidro}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>HIDROLOGÍA<i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">HIDROLOGÍA<i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>HIDROLOGÍA<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">HIDROLOGÍA<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Explotación y cuantificación de recursos de agua subterránea</li>
                   <li><div id="dot"/>Cuantificación de las demandas</li>
@@ -233,10 +233,10 @@ class Servicios extends Component {
                 <img alt="test" className="activator" src={servicioTest}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Inspección y Control de Obras</li>
                 </ul>
@@ -250,10 +250,10 @@ class Servicios extends Component {
                 <img alt="test" className="activator" src={servicioTest}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS <i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS <i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Planes de Desarrollo</li>
                   <li><div id="dot"/>Diseño de P.T.A.S</li>
@@ -266,13 +266,13 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={urba}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>URBANIZACIÓN<i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">URBANIZACIÓN<i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>URBANIZACIÓN<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">URBANIZACIÓN<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Planes diseño de arquitectura, estructural, pavimentos</li>
                   <li><div id="dot"/>Evacuación de aguas lluvias, agua potable, alcantarillado</li>
@@ -288,10 +288,10 @@ class Servicios extends Component {
                 <img alt="test" className="activator" src={servicioTest}/>
               </div>
               <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4" style={{display: 'flex'}}>OTROS<i className="material-icons right">arrow_upward</i></span>
+                <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>
               </div>
               <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4" style={{display: 'flex'}}>OTROS<i className="material-icons right">arrow_downward</i></span>
+                <span className="card-title grey-text text-darken-4">OTROS<i className="material-icons right">arrow_downward</i></span>
                 <ul style={{marginTop: '25px'}}>
                   <li><div id="dot"/>Proyectos de canales y obras de arte</li>
                   <li><div id="dot"/>Diseño arquitectónico y estructural de obras de acero y hormigón armado</li>
