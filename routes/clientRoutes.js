@@ -10,4 +10,7 @@ module.exports = app => {
   app.get('/api/getClientDetail', authJwt.ensureAuth, UserController.getClientDetail);
   app.put('/api/addProjectToClient', authJwt.ensureAuth, roleChecker.ensureRole, UserController.addProjectToClient);
   app.put('/api/removeProjectToClient', authJwt.ensureAuth, roleChecker.ensureRole, UserController.removeProjectToClient);
+  app.put('/api/updateClientGeneral', authJwt.ensureAuth, roleChecker.ensureRole, UserController.updateClientGeneral);
+  app.put('/api/changePassword', authJwt.ensureAuth, roleChecker.ensureRole, UserController.changePassword);
+  app.put('/api/deleteUser', authJwt.ensureAuth, roleChecker.ensureRole, UserController.deleteUser);
 };

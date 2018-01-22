@@ -131,11 +131,58 @@ async function removeProjectToClient(req, res){
 
 }
 
+
+//Edita la informacion general de un cliente
+async function updateClientGeneral(req, res){
+  User.findByIdAndUpdate(req.headers.id, req.body, (err, updateUser) => {
+    if(err){
+      res.status(500).send({ message: 'Error en la peticion' });
+    }else{
+      if(!updateUser){
+        res.status(404).send({ message: 'No se pudo updatear el user en la db' });
+      }else{
+        res.status(200).send(updateUser);
+      }
+    }
+  });
+}
+
+//Cambia la contraseña de un usuario
+async function changePassword(req, res){
+
+  const user = new User();
+  passwordHash = user.generateHash(req.body.pass);
+
+  const userPasswordUpdate = await User.updateOne(
+  {
+    _id: req.headers.id
+  },
+  {
+   $set: {
+     'password': passwordHash,
+   }
+  }
+  ).exec();
+
+  res.send({});
+}
+
+//Elimina un usuario
+async function deleteUser(req, res){
+
+  const userDelete = await User.remove({ '_id':req.headers.id })
+
+  res.send({});
+}
+
 module.exports = {
   createUser,
   loginUser,
   getAllClientsUsers,
   getClientDetail,
   addProjectToClient,
-  removeProjectToClient
+  removeProjectToClient,
+  updateClientGeneral,
+  changePassword,
+  deleteUser
 };

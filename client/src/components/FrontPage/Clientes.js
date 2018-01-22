@@ -26,24 +26,25 @@ class Clientes extends Component {
             </p>
           </div>
         </div>
-        <div className="row" style={{marginBottom: '0px'}}>
-          <div className="col m4 center-align" style={{}}>
-            <img alt="esval" src={esval}/>
+        <Fade>
+          <div className="row" style={{marginBottom: '0px'}}>
+            <div className="col m4 center-align" style={{}}>
+              <img alt="esval" src={esval}/>
+            </div>
+            <div className="col m4 center-align" style={{marginTop: '14px'}}>
+              <img alt="aguasdelvalle" src={aguasdelvalle}/>
+            </div>
+            <div className="col m4 center-align" style={{marginTop: '-10px'}}>
+              <img alt="aguasdelaltiplano" src={aguasdelaltiplano}/>
+            </div>
+            <div className="col m6 center-align" style={{}}>
+              <img alt="essbio" src={essbio}/>
+            </div>
+            <div className="col m6 center-align" style={{}}>
+              <img alt="aguasaraucania" src={aguasaraucania}/>
+            </div>
           </div>
-          <div className="col m4 center-align" style={{marginTop: '14px'}}>
-            <img alt="aguasdelvalle" src={aguasdelvalle}/>
-          </div>
-          <div className="col m4 center-align" style={{marginTop: '-10px'}}>
-            <img alt="aguasdelaltiplano" src={aguasdelaltiplano}/>
-          </div>
-          <div className="col m6 center-align" style={{}}>
-            <img alt="essbio" src={essbio}/>
-          </div>
-          <div className="col m6 center-align" style={{}}>
-            <img alt="aguasaraucania" src={aguasaraucania}/>
-          </div>
-        </div>
-
+        </Fade>
       </div>
     );
 
@@ -54,23 +55,21 @@ class Clientes extends Component {
             <b>Nuestros Clientes</b>
           </p>
         </div>
-        <Fade>
-          <div className="col s12 center-align" style={{marginTop: '-5px', paddingLeft: '0px', paddingRight: '0px'}}>
-            <img alt="esval" src={esval}/>
-          </div>
-          <div className="col s12 center-align" style={{paddingLeft: '0px', paddingRight: '0px'}}>
-            <img alt="essbio" src={essbio}/>
-          </div>
-          <div className="col s12 center-align" style={{marginTop: '-13px', paddingLeft: '0px', paddingRight: '0px'}}>
-            <img alt="aguasdelaltiplano" src={aguasdelaltiplano}/>
-          </div>
-          <div className="col s12 center-align" style={{marginTop: '10px', paddingLeft: '0px', paddingRight: '0px'}}>
-            <img alt="aguasdelvalle" src={aguasdelvalle}/>
-          </div>
-          <div className="col s12 center-align" style={{marginTop: '-4px', paddingLeft: '0px', paddingRight: '0px'}}>
-            <img alt="aguasaraucania" src={aguasaraucania}/>
-          </div>
-        </Fade>
+        <div className="col s12 center-align" style={{marginTop: '-5px', paddingLeft: '0px', paddingRight: '0px'}}>
+          <img alt="esval" src={esval}/>
+        </div>
+        <div className="col s12 center-align" style={{paddingLeft: '0px', paddingRight: '0px'}}>
+          <img alt="essbio" src={essbio}/>
+        </div>
+        <div className="col s12 center-align" style={{marginTop: '-13px', paddingLeft: '0px', paddingRight: '0px'}}>
+          <img alt="aguasdelaltiplano" src={aguasdelaltiplano}/>
+        </div>
+        <div className="col s12 center-align" style={{marginTop: '10px', paddingLeft: '0px', paddingRight: '0px'}}>
+          <img alt="aguasdelvalle" src={aguasdelvalle}/>
+        </div>
+        <div className="col s12 center-align" style={{marginTop: '-4px', paddingLeft: '0px', paddingRight: '0px'}}>
+          <img alt="aguasaraucania" src={aguasaraucania}/>
+        </div>
       </div>
     );
 

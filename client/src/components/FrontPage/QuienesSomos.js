@@ -67,11 +67,9 @@ class QuienesSomos extends Component {
             </div>
           </div>
           <h5>
-            <Zoom duration={800}>
-              <p className="flow-text center-align" style={{lineHeight: '150%'}}>
-                {longText}
-              </p>
-            </Zoom>
+            <p className="flow-text center-align" style={{lineHeight: '150%'}}>
+              {longText}
+            </p>
           </h5>
         </div>
         <div className="col s12">

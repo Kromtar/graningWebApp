@@ -286,6 +286,27 @@ async function deleteLinkFromProject(req, res){
 
 }
 
+//Elimina un proyecto y todo lo relacionado
+async function deleteProject(req, res){
+  
+  const reviewDelete = await Reviews.remove({ '_project':req.body.idProject });
+  const stageDelete = await Stages.remove({ '_project':req.body.idProject });
+  const updateUser = await Users.updateOne(
+  {
+    _projects: req.body.idProject
+  },
+  {
+   $pull: {
+     _projects: req.body.idProject
+   }
+  }
+  ).exec();
+  const projectDelete = await Projects.remove({ '_id':req.body.idProject });
+
+  res.send({});
+
+}
+
 
 module.exports = {
   createProject,
@@ -299,5 +320,6 @@ module.exports = {
   deleteRevFromProject,
   editRevFromProject,
   addLinkToPtoject,
-  deleteLinkFromProject
+  deleteLinkFromProject,
+  deleteProject
 };
