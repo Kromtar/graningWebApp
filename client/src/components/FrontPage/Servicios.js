@@ -5,11 +5,13 @@ import Responsive from 'react-responsive';
 import Flip from 'react-reveal/Flip';
 import Zoom from 'react-reveal/Zoom';
 
-import servicioTest from '../../media/photos/proyectoTest.jpg';
 import urba from '../../media/photos/urba.png';
 import hidro from '../../media/photos/hidro.png';
-import obra from '../../media/photos/obra.png';
+import obraAs from '../../media/photos/obraAs.png';
+import obraAp from '../../media/photos/obraAp.png';
+import otros from '../../media/photos/otros.png';
 import vigas from '../../media/photos/vigas.png';
+import ins from '../../media/photos/ins.png';
 import pin from '../../media/photos/pin.png';
 
 class Servicios extends Component {
@@ -33,14 +35,14 @@ class Servicios extends Component {
                 </div>
               </div>
               <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px', color: 'white'}}>
-                leyenda de la tematica, tiene que ser de este lago aproximadamente
+                Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades:
               </p>
             </div>
             <div className="col s6 m6 l4 xl3">
               <Zoom>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img alt="obra" className="activator" src={obra}/>
+                    <img alt="obra" className="activator" src={obraAp}/>
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
@@ -84,7 +86,7 @@ class Servicios extends Component {
               <Zoom delay={600}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img alt="test" className="activator" src={servicioTest}/>
+                    <img alt="test" className="activator" src={ins}/>
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
@@ -105,7 +107,7 @@ class Servicios extends Component {
               <Zoom delay={900}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img alt="test" className="activator" src={servicioTest}/>
+                    <img alt="test" className="activator" src={obraAs}/>
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.S<i className="material-icons right">arrow_upward</i></span>
@@ -147,7 +149,7 @@ class Servicios extends Component {
               <Zoom delay={1500}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
-                    <img alt="test" className="activator" src={servicioTest}/>
+                    <img alt="test" className="activator" src={otros}/>
                   </div>
                   <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>
@@ -184,13 +186,13 @@ class Servicios extends Component {
               </div>
             </div>
             <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px', color: 'white'}}>
-              leyenda de la tematica, tiene que ser de este lago aproximadamente
+              Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades:
             </p>
           </div>
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={obra}/>
+                <img alt="test" className="activator" src={obraAs}/>
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS - A.P<i className="material-icons right">arrow_upward</i></span>
@@ -230,7 +232,7 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={ins}/>
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">INSPECCIÓN DE OBRAS<i className="material-icons right">arrow_upward</i></span>
@@ -247,7 +249,7 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={obraAs}/>
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">OBRAS SANITARIAS <i className="material-icons right">arrow_upward</i></span>
@@ -285,7 +287,7 @@ class Servicios extends Component {
           <div className="col s12">
             <div className="card hoverable" style={{width: '100%'}}>
               <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={servicioTest}/>
+                <img alt="test" className="activator" src={otros}/>
               </div>
               <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>

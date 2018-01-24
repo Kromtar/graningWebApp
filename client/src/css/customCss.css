@@ -12,7 +12,8 @@ nav {
 }
 
 li .active {
-	background: #ff6600 !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #ff6600;
 }
 
 .lateralpanelparallax {
@@ -49,9 +50,9 @@ li .active {
 	border-right-color: #ff6600 !important;
 }
 
- .control-next.control-arrow:before {
- 	border-left-color: #ff6600 !important;
- }
+.control-next.control-arrow:before {
+	border-left-color: #ff6600 !important;
+}
 
 body::-webkit-scrollbar {
   width: 0.5em;
@@ -106,6 +107,7 @@ input {
 .-pagination input {
   padding: 0px !important;
 }
+
 .-pagination {
   height: 50px !important;
 }
@@ -122,4 +124,22 @@ input {
 .card-title {
   font-size: 16px !important;
   font-weight: 500 !important;
+}
+
+.modalProjectDetail {
+  width: 85% !important;
+  top: 5% !important;
+  max-height: 90% !important;
+}
+
+.cellphone .carousel-slider  {
+  height: 24vh !important;
+}
+
+.desktop .carousel-slider  {
+  height: 350px !important;
+}
+
+.slider li {
+  background: #fafafa !important;
 }

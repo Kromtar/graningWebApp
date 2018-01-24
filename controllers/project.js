@@ -156,6 +156,8 @@ async function deleteStageFromProject(req, res){
 //Agrega revisiones a un estado de un proyecto
 async function addRevsToProject(req, res){
 
+  console.log(req.body);
+
   function toDateWhitSlash(dateSrt){
     var dateParts = dateSrt.split("/");
     return new Date(dateParts[2], dateParts[1] - 1, dateParts[0]);
@@ -238,7 +240,7 @@ async function editRevFromProject(req, res){
          $set: {
            'name': req.body[stage][review].name,
            'companytoclientdate': req.body[stage][review].companytoclientdate,
-           'clienttocompany:':'2018-01-25T03:00:00.000Z',
+           'clienttocompany': req.body[stage][review].clienttocompany,
          }
         }
         ).exec();
@@ -288,7 +290,7 @@ async function deleteLinkFromProject(req, res){
 
 //Elimina un proyecto y todo lo relacionado
 async function deleteProject(req, res){
-  
+
   const reviewDelete = await Reviews.remove({ '_project':req.body.idProject });
   const stageDelete = await Stages.remove({ '_project':req.body.idProject });
   const updateUser = await Users.updateOne(

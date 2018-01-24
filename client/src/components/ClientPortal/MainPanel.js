@@ -27,15 +27,16 @@ class MainPanel extends Component {
 
     return(
       <div>
+
         <nav style={{position: 'initial'}}>
           <div className="nav-wrapper">
-            <RouterLink to={'/'}>
+            <div className="brand-logo center">
               <img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/>
-            </RouterLink>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
+            </div>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li style={{paddingRight: '25px'}}>
                 <a onClick={() => this.props.logOut()} style={{color: '#00305b'}}>
-                  Salir
+                  SALIR
                 </a>
               </li>
             </ul>

@@ -18,14 +18,7 @@ class Clientes extends Component {
     const Default = props => <Responsive {...props} minWidth={768} />;
 
     const desktopVersion = (
-      <div className="row z-depth-5" style={{background: '#a09fa2'}}>
-        <div className="row" style={{marginBottom: '0px'}}>
-          <div className="col s12 center-align">
-            <p className="flow-text" style={{color: 'black', fontWeight: '400'}}>
-              Nuestros Clientes
-            </p>
-          </div>
-        </div>
+      <div className="row z-depth-5" style={{background: '#a09fa2', position: 'relative'}}>
         <Fade>
           <div className="row" style={{marginBottom: '0px'}}>
             <div className="col m4 center-align" style={{}}>
@@ -49,12 +42,7 @@ class Clientes extends Component {
     );
 
     const mobileVersion = (
-      <div className="row z-depth-5" style={{background: '#a09fa2'}}>
-        <div className="col s12 center-align">
-          <p className="flow-text" style={{color: 'black', paddingLeft: '0px', paddingRight: '0px'}}>
-            <b>Nuestros Clientes</b>
-          </p>
-        </div>
+      <div className="row z-depth-5" style={{background: '#a09fa2', position: 'relative'}}>
         <div className="col s12 center-align" style={{marginTop: '-5px', paddingLeft: '0px', paddingRight: '0px'}}>
           <img alt="esval" src={esval}/>
         </div>

@@ -31,8 +31,8 @@ class ProjectDetail extends Component {
   renderProjectStage(){
     return _.map(this.props.projectDetail._stage, stage => {
       return (
-          <li key={stage._id}>
-            <div className="collapsible-header"><i className="material-icons">device_hub</i>{stage.name}</div>
+          <li key={stage._id} style={{borderStyle: 'solid', borderWidth: '2px', borderColor: '#0066cc'}}>
+            <div className="collapsible-header" style={{borderBottomColor: '#0066cc'}}><i className="material-icons">device_hub</i>{stage.name}</div>
             <div className="collapsible-body">
               <div
                 className="row z-depth-1"
@@ -138,8 +138,8 @@ class ProjectDetail extends Component {
             <p><b>Nº Orden de compra:  </b>{this.props.projectDetail.purchaseordernumber}</p>
           </div>
           <div className="col s6">
-            <p><b>Fecha inicio proyecto:  </b>{this.props.projectDetail.openprojectdate ? this.dateFormat(this.props.projectDetailStatic.openprojectdate) : 'Pendiente'}</p>
-            <p><b>Fecha cierre proyecto:  </b>{this.props.projectDetail.closeprojectdate ? this.dateFormat(this.props.projectDetailStatic.closeprojectdate) : 'Pendiente'}</p>
+            <p><b>Fecha inicio proyecto:  </b>{this.props.projectDetail.openprojectdate ? this.dateFormat(this.props.projectDetail.openprojectdate) : 'Pendiente'}</p>
+            <p><b>Fecha cierre proyecto:  </b>{this.props.projectDetail.closeprojectdate ? this.dateFormat(this.props.projectDetail.closeprojectdate) : 'Pendiente'}</p>
             <p><b>Plazo (en días):  </b>{this.props.projectDetail.term}</p>
           </div>
 

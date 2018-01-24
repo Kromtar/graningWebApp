@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
+import { Link as RouterLink } from 'react-router-dom';
 
 import proyectoTest from '../../media/photos/proyectoTest.jpg';
 import cota from '../../media/photos/cota.png';
@@ -28,11 +29,21 @@ class Proyectos extends Component {
         </div>
         <div className="row center-align">
           <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px'}}>
-            leyenda de la tematica, tiene que ser de este lago aproximadamente
+            Algunos de nuestros principales proyectos son:
           </p>
         </div>
         <div className="row" style={{marginTop: '35px'}}>
-          <div className="col m10 l6 offset-m1 offset-l3 hoverable z-depth-2" style={{paddingLeft: '0px', paddingRight: '0px'}}>
+          <div className="col m10 l6 offset-m1 offset-l3 hoverable z-depth-2"
+            style={{
+              paddingLeft: '0px',
+              paddingRight: '0px',
+              position: 'relative',
+              maxWidth: '800px',
+              width: '100%',
+              left: '25%',
+              transform: 'translateX(-50%)'
+            }}
+          >
             <Carousel
               showThumbs={false}
               infiniteLoop
@@ -59,7 +70,13 @@ class Proyectos extends Component {
         </div>
         <div className="row" style={{marginTop: '50px', marginBottom: '90px'}}>
           <div className="col s2 offset-s5 center-align">
-            <a className="waves-effect btn" style={{backgroundColor: '#ff6600'}}>todos los proyectos</a>
+            <RouterLink
+              to={'/portafolio'}
+              className="waves-effect btn"
+              style={{backgroundColor: '#ff6600'}}
+            >
+              todos los proyectos
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -80,7 +97,7 @@ class Proyectos extends Component {
         </div>
         <div className="row center-align">
           <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px'}}>
-            leyenda de la tematica, tiene que ser de este lago aproximadamente
+            Algunos de nuestros principales proyectos son:
           </p>
         </div>
         <div className="row" style={{marginTop: '35px'}}>
@@ -110,8 +127,14 @@ class Proyectos extends Component {
           </div>
         </div>
         <div className="row" style={{marginTop: '50px', marginBottom: '90px'}}>
-          <div className="col s8 offset-s2 center-align">
-            <a className="waves-effect btn" style={{backgroundColor: '#ff6600'}}>todo los proyectos</a>
+          <div className="col s10 offset-s1 center-align">
+            <RouterLink
+              to={'/portafolio'}
+              className="waves-effect btn"
+              style={{backgroundColor: '#ff6600'}}
+            >
+              todos los proyectos
+            </RouterLink>
           </div>
         </div>
       </div>

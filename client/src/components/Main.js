@@ -4,7 +4,7 @@ import { connect } from 'react-redux';  //Para compatiilidad
 
 import FrontPage from './FrontPage/FrontPage';
 import ClientPortal from './ClientPortal/ClientPortal';
-
+import ProjectsPortafolio from './projectsPortafolio/ProjectsPortafolio';
 class Main extends Component {
 
   render(){
@@ -14,6 +14,7 @@ class Main extends Component {
           <div>
             <Route exact={true} path="/" component={FrontPage} />
             <Route exact={true} path="/clientportal" component={ClientPortal} />
+            <Route exact={true} path="/portafolio" component={ProjectsPortafolio} />
           </div>
         </BrowserRouter>
       </div>

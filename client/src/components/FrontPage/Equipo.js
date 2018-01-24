@@ -6,8 +6,9 @@ import $ from 'jquery';
 import Fade from 'react-reveal/Fade';
 
 import plano from '../../media/photos/plano.png';
-import equipo from '../../media/photos/mainphoto.jpg';
+import equipo from '../../media/photos/team.png';
 import pin from '../../media/photos/pin.png';
+import perfil from '../../media/photos/perfil.png';
 
 class Equipo extends Component {
 
@@ -44,7 +45,7 @@ class Equipo extends Component {
               <div className="matchHeight" style={{display: 'inline-table', overflow: 'hidden'}}>
                 <div style={{display: 'table-cell', verticalAlign: 'middle'}}>
                   <div className="row">
-                    <img alt="fundador" src={equipo} className="circle z-depth-2" style={{width: '171px', height: '171px'}}/>
+                    <img alt="fundador" src={perfil} className="circle z-depth-2" style={{width: '171px', height: '171px'}}/>
                   </div>
                   <div className="row center-align" style={{color: 'white'}}>
                     <p style={{marginBottom: '0px'}}><b>MAURICIO CORREA</b></p>
@@ -67,7 +68,7 @@ class Equipo extends Component {
         </div>
         <div className="row">
           <div className="col s10 offset-s1 center-align " style={{position: 'relative', marginBottom: '50px'}}>
-            <Fade duration={1000}><img alt="equipo" src={equipo} className="z-depth-2" style={{width: '100%', height: '500px'}}/></Fade>
+            <Fade duration={1000}><img alt="equipo" src={equipo} className="z-depth-2" style={{width: '100%', maxWidth: '1200px'}}/></Fade>
           </div>
         </div>
       </div>
@@ -91,7 +92,7 @@ class Equipo extends Component {
 
             <div className="col s12 center-align" style={{position: 'relative', marginTop: '25px'}}>
               <div className="row">
-                <img alt="fundador" src={equipo} className="circle z-depth-2" style={{width: '200px', height: '200px'}}/>
+                <img alt="fundador" src={perfil} className="circle z-depth-2" style={{width: '200px', height: '200px'}}/>
               </div>
               <div className="row center-align" style={{color: 'white'}}>
                 <p style={{marginBottom: '0px'}}><b>MAURICIO CORREA</b></p>

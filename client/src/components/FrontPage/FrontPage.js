@@ -5,7 +5,6 @@ import { Link, Element } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom';
 import Responsive from 'react-responsive';
 
-import Zoom  from 'react-reveal/Zoom';
 import ScrollingColorBackground from 'react-scrolling-color-background';
 import pin from '../../media/photos/pin.png';
 
@@ -40,7 +39,7 @@ class FrontPage extends Component {
             <nav>
               <div className="nav-wrapper">
                 <Link style={{cursor: 'pointer'}} className="brand-logo" to="parallax" spy={true} smooth={true} duration={500} isDynamic={true}>
-                  <Zoom><img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/></Zoom>
+                  <img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/>
                 </Link>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li>
@@ -83,9 +82,13 @@ class FrontPage extends Component {
 
           <Mobile>
             <nav>
-              <div className="nav-wrapper">
-                <a data-activates="slide-out" className="button-collapse"><i className="material-icons" style={{color: '#ff6600', fontSize: '40px', lineHeight: '86px'}}>menu</i></a>
-                <Zoom><img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/></Zoom>
+              <div className="nav-wrapper row">
+                <div className="col s2">
+                  <a data-activates="slide-out" className="button-collapse"><i className="material-icons" style={{color: '#ff6600', fontSize: '40px', lineHeight: '86px'}}>menu</i></a>
+                </div>
+                <div className="col s10 right-align">
+                  <img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/>
+                </div>
               </div>
             </nav>
             <ul id="slide-out" className="side-nav" style={{zIndex: '1000'}}>

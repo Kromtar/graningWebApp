@@ -9,6 +9,7 @@ require('./models/User');
 require('./models/Project');
 require('./models/Stage');
 require('./models/Review');
+require('./models/Galery');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 require('./routes/authRoutes')(app);
 require('./routes/clientRoutes')(app);
 require('./routes/projectRoutes')(app);
+require('./routes/galeryRoutes')(app);
 
 
 app.use(express.static('client/build'));

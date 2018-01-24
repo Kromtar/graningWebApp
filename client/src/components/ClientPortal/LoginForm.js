@@ -6,6 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Responsive from 'react-responsive';
 
 import logoBig from '../../media/photos/logoBig.png';
+import logo from '../../media/photos/logo.png';
 
 class LoginForm extends Component {
 
@@ -24,12 +25,24 @@ class LoginForm extends Component {
     return (
       <div>
 
+        <nav style={{position: 'initial'}}>
+          <div className="nav-wrapper">
+            <div className="brand-logo center">
+              <img alt="logo" src={logo} style={{height: '88px', marginLeft: '20px'}}/>
+            </div>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
+              <li style={{paddingRight: '25px'}}>
+                <RouterLink style={{color: '#00305b'}} to={'/'}>
+                  REGRESAR
+                </RouterLink>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
         <Default>
           <div className="container" style={{ marginTop:  '30px'}}>
             <form onSubmit={this.props.handleSubmit((credentials) => onClickLogin(credentials))}>
-              <div className="row center-align">
-                <img alt="logoBig" src={logoBig}/>
-              </div>
               <div className="row">
                 <div className="col s6 offset-s3">
                   <div

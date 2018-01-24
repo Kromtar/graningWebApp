@@ -5,7 +5,7 @@ import Responsive from 'react-responsive';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 
-import mainphoto from '../../media/photos/mainphoto.jpg';
+import portada from '../../media/photos/portada.png';
 
 class Parallax extends Component {
 
@@ -25,7 +25,7 @@ class Parallax extends Component {
             <div className="col s8 offset-s4" style={{paddingRight: '40px'}}>
               <div className="row right-align" style={{marginTop: '40%'}}>
                 <Fade delay={500} bottom duration={2000}>
-                  <h4 style={{color: 'white'}}><b>DESARROLLO DE PROYECTOS DE INGENIERÍA CIVIL</b></h4>
+                  <h4 style={{color: 'white'}}><b>DESARROLLANDO UNA GRAN INGENIERÍA POR MÁS DE 10 AÑOS</b></h4>
                 </Fade>
               </div>
               <div className="row center-align">
@@ -41,7 +41,7 @@ class Parallax extends Component {
             </div>
           </div>
         </div>
-        <div className="parallax"><img alt="mainphoto" src={mainphoto}/></div>
+        <div className="parallax"><img alt="mainphoto" src={portada}/></div>
       </div>
     );
 
@@ -52,7 +52,7 @@ class Parallax extends Component {
             <div className="col s12">
               <div className="row center-align" style={{marginTop: '40%'}}>
                 <Fade delay={500} bottom duration={2000}>
-                  <h4 style={{color: 'white'}}><b>DESARROLLO DE PROYECTOS DE INGENIERÍA CIVIL</b></h4>
+                  <h4 style={{color: 'white'}}><b>DESARROLLANDO UNA GRAN INGENIERÍA POR MÁS DE 10 AÑOS</b></h4>
                 </Fade>
               </div>
               <div className="row center-align">
@@ -68,7 +68,7 @@ class Parallax extends Component {
             </div>
           </div>
         </div>
-        <div className="parallax"><img alt="mainphoto" src={mainphoto}/></div>
+        <div className="parallax"><img alt="mainphoto" src={portada}/></div>
       </div>
     );
 
