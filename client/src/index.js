@@ -3,6 +3,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import 'react-table/react-table.css';
 import './css/customCss.css';
+import {config} from 'dotenv';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';

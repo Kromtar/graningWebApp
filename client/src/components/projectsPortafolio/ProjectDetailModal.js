@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import Responsive from 'react-responsive';
 
-import proyectoTest from '../../media/photos/proyectoTest.jpg';
+import proyectoTest from '../../media/photos/proyectoTest.webp';
 
 class deleteProjectConfirmModal extends Component {
 
@@ -17,7 +17,7 @@ class deleteProjectConfirmModal extends Component {
 
   renderImg(number){
     try{
-      return <img alt="test" src={require(`../../media/photos/galery/${this.props.projectDetailSelected.internalcode}/${number}.jpg`)} />;
+      return <img alt="test" src={require(`../../media/photos/galery/${this.props.projectDetailSelected.internalcode}/${number}.webp`)} />;
     }catch(err){
       console.log(err);
       return <img alt="test" src={proyectoTest} />;
@@ -76,9 +76,7 @@ class deleteProjectConfirmModal extends Component {
 
     return(
       <div className="modal-content" style={{paddingBottom: '3px'}}>
-
-        <div>
-          {/* Project imgs*/}
+        <div style={{position:'absolute', top:'0px', bottom:'60px', left:'0px', right:'0px', overflow:'auto', paddingTop: '10px'}}>
           <div className="row">
             <Default>
               <div className="desktop col m6 l6 offset-l3"
@@ -94,22 +92,26 @@ class deleteProjectConfirmModal extends Component {
               </div>
             </Default>
             <Mobile>
-              <div className="cellphone col s12">
+              <div className="cellphone col s12"
+                style={{
+                  position: 'relative',
+                  maxWidth: '600px',
+                  width: '100%',
+                  left: '50%',
+                  transform: 'translateX(-50%)'
+                }}
+              >
                 {this.carousel()}
               </div>
             </Mobile>
           </div>
-
-          {/* Project text*/}
           <div className="row">
-            <div className="col s12" style={{overflowY: 'scroll', height: '240px'}}>
+            <div className="col s12">
               {this.renderText()}
             </div>
           </div>
         </div>
-
-        {/* Footer modal*/}
-        <div className="row" style={{marginBottom: '0px'}}>
+        <div style={{position:'absolute', bottom:'0px', height:'60px', left:'0px', right:'0px', overflow:'hidden'}}>
           <div className="divider"></div>
           <div className="modal-footer">
             <a
@@ -119,7 +121,6 @@ class deleteProjectConfirmModal extends Component {
             </a>
           </div>
         </div>
-
       </div>
     );
   }

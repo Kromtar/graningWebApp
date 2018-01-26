@@ -5,10 +5,10 @@ import $ from 'jquery';
 
 import Fade from 'react-reveal/Fade';
 
-import plano from '../../media/photos/plano.png';
-import equipo from '../../media/photos/team.png';
-import pin from '../../media/photos/pin.png';
-import perfil from '../../media/photos/perfil.png';
+import plano from '../../media/photos/plano.webp';
+import equipo from '../../media/photos/team.webp';
+import pin from '../../media/photos/pin.webp';
+import perfil from '../../media/photos/perfil.webp';
 
 class Equipo extends Component {
 
@@ -34,7 +34,7 @@ class Equipo extends Component {
           </div>
         </div>
         <div className="row center-align">
-          <div className="col s2 offset-s5" style={{position: 'relative'}}>
+          <div className="col s8 offset-s2" style={{position: 'relative'}}>
             <div className="divider" style={{backgroundColor: '#ff6600'}}/>
           </div>
         </div>
@@ -76,14 +76,14 @@ class Equipo extends Component {
 
     const mobileVersion = (
       <div>
-        <img alt="plano" src={plano} style={{position: 'absolute', opacity: '0.2', width: '100%', marginTop: '-90px'}}/>
+        <img alt="cota" src={plano} style={{position: 'absolute', opacity: '0.2', width: '100%', marginTop: '-90px'}}/>
         <div className="row center-align">
           <div style={{marginTop: '90px', position: 'relative', color: 'white'}}>
             <h4><b>NUESTRO EQUIPO</b></h4>
           </div>
         </div>
         <div className="row center-align">
-          <div className="col s2 offset-s5" style={{position: 'relative'}}>
+          <div className="col s8 offset-s2" style={{position: 'relative'}}>
             <div className="divider" style={{backgroundColor: '#ff6600'}}/>
           </div>
         </div>

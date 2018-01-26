@@ -23,7 +23,7 @@ async function AddProjectToGalery(req, res) {
 }
 
 async function getGalery(req, res) {
-  const galery = await Galerys.find({});
+  const galery = await Galerys.find().sort({ internalcode: -1 });
   res.send(galery);
 }
 

@@ -11,6 +11,24 @@ nav {
   height: 975px;
 }
 
+@media only screen and (max-width : 1464px) {
+  .parallax img {
+    max-height: 200%;
+  }
+}
+
+@media only screen and (max-width: 1800px) {
+  .parallax img {
+    max-height: 300%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  .parallax img {
+    max-height: 350%;
+  }
+}
+
 li .active {
   border-bottom-style: solid !important;
   border-bottom-color: #ff6600;
@@ -26,6 +44,13 @@ li .active {
 .card-content {
 	padding-top: 10px !important;
 	padding-bottom: 5px !important;
+  padding-right: 18px !important;
+  padding-left: 18px !important;
+}
+
+.card-reveal {
+  padding-right: 18px !important;
+  padding-left: 18px !important;
 }
 
 .legend {
@@ -129,7 +154,12 @@ input {
 .modalProjectDetail {
   width: 85% !important;
   top: 5% !important;
+  bottom: 5% !important;
   max-height: 90% !important;
+}
+
+.carousel.carousel-slider {
+  height: 100%;
 }
 
 .cellphone .carousel-slider  {

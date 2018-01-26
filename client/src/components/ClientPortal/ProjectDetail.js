@@ -82,10 +82,10 @@ class ProjectDetail extends Component {
     if(this.props.projectDetail.filename){
       return (
         <div className="row">
-          <div className="col s9">
+          <div className="col s4">
             Nombre del último archivo disponible: {this.props.projectDetail.filename}
           </div>
-          <div className="col s3">
+          <div className="col s8 center-align">
             <a
               href={this.props.projectDetail.url}
               target="_blank"

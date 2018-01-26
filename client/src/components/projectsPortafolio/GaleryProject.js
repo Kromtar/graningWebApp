@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 
 import * as actions from '../../actions';
-import proyectoTest from '../../media/photos/proyectoTest.jpg';
+import proyectoTest from '../../media/photos/proyectoTest.webp';
 
 class GaleryProject extends Component {
 

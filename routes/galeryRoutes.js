@@ -5,6 +5,7 @@ const GaleryController = require('../controllers/galery');
 //TODO: Agregar middleware administrador
 
 module.exports = app => {
+  //TODO: SELLAR
   app.post('/api/AddProjectToGalery', GaleryController.AddProjectToGalery);
   app.get('/api/getGalery', GaleryController.getGalery);
 };

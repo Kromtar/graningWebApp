@@ -5,14 +5,15 @@ import Responsive from 'react-responsive';
 import Flip from 'react-reveal/Flip';
 import Zoom from 'react-reveal/Zoom';
 
-import urba from '../../media/photos/urba.png';
-import hidro from '../../media/photos/hidro.png';
-import obraAs from '../../media/photos/obraAs.png';
-import obraAp from '../../media/photos/obraAp.png';
-import otros from '../../media/photos/otros.png';
-import vigas from '../../media/photos/vigas.png';
-import ins from '../../media/photos/ins.png';
-import pin from '../../media/photos/pin.png';
+import urba from '../../media/photos/urba.webp';
+import hidro from '../../media/photos/hidro.webp';
+import obraAs from '../../media/photos/obraAs.webp';
+import obraAp from '../../media/photos/obraAp.webp';
+import otros from '../../media/photos/otros.webp';
+import vigas from '../../media/photos/vigas.webp';
+import ins from '../../media/photos/ins.webp';
+import pin from '../../media/photos/pin.webp';
+import mode from '../../media/photos/mode.webp';
 
 class Servicios extends Component {
 
@@ -35,7 +36,7 @@ class Servicios extends Component {
                 </div>
               </div>
               <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px', color: 'white'}}>
-                Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades:
+                Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades
               </p>
             </div>
             <div className="col s6 m6 l4 xl3">
@@ -149,6 +150,28 @@ class Servicios extends Component {
               <Zoom delay={1500}>
                 <div className="card hoverable" style={{width: '100%'}}>
                   <div className="card-image waves-effect waves-block waves-light">
+                    <img alt="test" className="activator" src={mode}/>
+                  </div>
+                  <div className="card-content">
+                    <span className="card-title activator grey-text text-darken-4">MODELACIÓN HIDRÁULICA<i className="material-icons right">arrow_upward</i></span>
+                  </div>
+                  <div className="card-reveal">
+                    <span className="card-title grey-text text-darken-4">MODELACIÓN HIDRÁULICA<i className="material-icons right">arrow_downward</i></span>
+                    <ul style={{marginTop: '25px'}}>
+                      <li><div id="dot"/>Modelación y cálculo de transientes hidráulico</li>
+                      <li><div id="dot"/>Cálculo de desagues</li>
+                      <li><div id="dot"/>Modelación de cauces</li>
+                      <li><div id="dot"/>Analisis de impulsiones</li>
+                      <li><div id="dot"/>Estudios con herramienta HEC-RAS 2D y 3D</li>
+                    </ul>
+                  </div>
+                </div>
+              </Zoom>
+            </div>
+            <div className="col s6 m6 l4 offset-l4 xl3">
+              <Zoom delay={2000}>
+                <div className="card hoverable" style={{width: '100%'}}>
+                  <div className="card-image waves-effect waves-block waves-light">
                     <img alt="test" className="activator" src={otros}/>
                   </div>
                   <div className="card-content">
@@ -164,9 +187,6 @@ class Servicios extends Component {
                   </div>
                 </div>
               </Zoom>
-            </div>
-            <div className="col s6 m6 l12 xl3 center-align" style={{marginTop: '10%' }}>
-              <Flip duration={3000}><img alt="pin" src={pin}/></Flip>
             </div>
           </div>
         </div>
@@ -186,7 +206,7 @@ class Servicios extends Component {
               </div>
             </div>
             <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px', color: 'white'}}>
-              Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades:
+              Ofrecemos una Ingeniería Multidisciplinaria, enfocada en las siguientes especialidades
             </p>
           </div>
           <div className="col s12">
@@ -280,6 +300,26 @@ class Servicios extends Component {
                   <li><div id="dot"/>Evacuación de aguas lluvias, agua potable, alcantarillado</li>
                   <li><div id="dot"/>Diseño de Estaciones Elevadoras</li>
                   <li><div id="dot"/>Obras eléctricas e instalaciones domiciliarias</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="col s12">
+            <div className="card hoverable" style={{width: '100%'}}>
+              <div className="card-image waves-effect waves-block waves-light">
+                <img alt="test" className="activator" src={mode}/>
+              </div>
+              <div className="card-content">
+                <span className="card-title activator grey-text text-darken-4">MODELACIÓN HIDRÁULICA<i className="material-icons right">arrow_upward</i></span>
+              </div>
+              <div className="card-reveal">
+                <span className="card-title grey-text text-darken-4">MODELACIÓN HIDRÁULICA<i className="material-icons right">arrow_downward</i></span>
+                <ul style={{marginTop: '25px'}}>
+                  <li><div id="dot"/>Modelación y cálculo de transientes hidráulico</li>
+                  <li><div id="dot"/>Cálculo de desagues</li>
+                  <li><div id="dot"/>Modelación de cauces</li>
+                  <li><div id="dot"/>Analisis de impulsiones</li>
+                  <li><div id="dot"/>Estudios con herramienta HEC-RAS 2D y 3D</li>
                 </ul>
               </div>
             </div>

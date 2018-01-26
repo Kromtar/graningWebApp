@@ -65,6 +65,42 @@ function loginUser(req, res) {
   });
 }
 
+function loginUserAdmin(req, res) {
+  //Validar parametros (en particular y conjunto)
+  //Considerar errores
+  //Que se realice la peticion por denegacion de servicio
+  //Es necesario agregar el await ?
+
+  const params = req.body;
+  const email = params.email;
+  const password = params.password;
+  const getToken = params.getToken;
+
+
+  User.findOne({ email }, (err, user) => {
+    if (err) {
+      res.status(500).send({ message: 'DB connection error' });
+    } else if (!user) {
+      res.status(404).send({ message: 'Invalid user' });
+    } else if (!user.validPassword(password)) {
+      res.status(401).send({ message: 'Invalid password' });
+    } else if (getToken) {
+      //Retorna el token JWT
+      if(user.role !== 'ADMIN'){
+        res.status(404).send({ message: 'Invalid user' });
+      }else{
+        res.status(200).send({
+          token: jwt.createToken(user)
+        });
+      }
+    } else {
+      //Retorna el objeto de user
+      res.status(200).send({ user });
+    }
+  });
+}
+
+
 async function getAllClientsUsers(req, res) {
   //TODO:Agregar error si no logra conectarse a la db
   try {
@@ -178,6 +214,7 @@ async function deleteUser(req, res){
 module.exports = {
   createUser,
   loginUser,
+  loginUserAdmin,
   getAllClientsUsers,
   getClientDetail,
   addProjectToClient,

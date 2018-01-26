@@ -4,11 +4,11 @@ import Responsive from 'react-responsive';
 
 import Fade from 'react-reveal/Fade';
 
-import essbio from '../../media/photos/essbio.png';
-import esval from '../../media/photos/esval.png';
-import aguasdelvalle from '../../media/photos/aguasdelvalle.png';
-import aguasaraucania from '../../media/photos/aguasaraucania.png';
-import aguasdelaltiplano from '../../media/photos/aguasdelaltiplano.png';
+import essbio from '../../media/photos/essbio.webp';
+import esval from '../../media/photos/esval.webp';
+import aguasdelvalle from '../../media/photos/aguasdelvalle.webp';
+import aguasaraucania from '../../media/photos/aguasaraucania.webp';
+import aguasdelaltiplano from '../../media/photos/aguasdelaltiplano.webp';
 
 class Clientes extends Component {
 

@@ -1,7 +1,7 @@
+require('dotenv').config()
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const config = require('./config/config');
 
 mongoose.Promise = global.Promise;
 
@@ -30,6 +30,7 @@ require('./routes/authRoutes')(app);
 require('./routes/clientRoutes')(app);
 require('./routes/projectRoutes')(app);
 require('./routes/galeryRoutes')(app);
+require('./routes/auxiliarRoutes')(app);
 
 
 app.use(express.static('client/build'));
@@ -40,14 +41,14 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-mongoose.connect(config.mongodbHost.concat(config.dbName), {}, (err) => {
+mongoose.connect(process.env.MONGODBURL.concat(process.env.DBNAME), {}, (err) => {
   if (err) {
     throw err;
   } else {
     console.log('Mongo conection OK');
 
-    app.listen(config.serverPort, () => {
-      console.log('Server ON, port:', config.serverPort);
+    app.listen(process.env.SERVERPORT, () => {
+      console.log('Server ON, port:', process.env.SERVERPORT);
       console.log('The environment is', process.env.NODE_ENV);
     });
   }

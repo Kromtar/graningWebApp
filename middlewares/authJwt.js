@@ -1,8 +1,7 @@
 const jwt = require('jwt-simple');
 const moment = require('moment');
-const keys = require('../config/keys');
 
-const secret = keys.jwtSecret;
+const secret = process.env.JWTSECRET;
 
 exports.ensureAuth = function (req, res, next) {
   if (!req.headers.auth) {

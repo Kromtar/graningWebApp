@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import Responsive from 'react-responsive';
 
-import footerimg from '../../media/photos/footerImg.png';
-import pin from '../../media/photos/pin.png';
-
-import keys from '../../config/keys';
+import footerimg from '../../media/photos/footerImg.webp';
+import pin from '../../media/photos/pin.webp';
+import MapPin from './auxComponents/mapPin';
 
 class Contacto extends Component {
 
@@ -33,11 +32,15 @@ class Contacto extends Component {
               <div className="col s6" style={{height: '100%', paddingLeft: '0px'}}>
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: process.env.GOOGLEMAPSAPYKEY || keys.googleMapsApiKey,
+                    key: process.env.REACT_APP_GOOGLEMAPSAPYKEY,
                   }}
                   defaultCenter={this.props.center}
                   defaultZoom={this.props.zoom}
                 >
+                  <MapPin
+                    lat={-33.020062}
+                    lng={-71.551258}
+                  />
                 </GoogleMapReact>
               </div>
               <div className="col m6 left-align">
@@ -47,7 +50,7 @@ class Contacto extends Component {
                   </div>
                 </div>
                 <div className="row center-align" style={{marginBottom: '5px'}}>
-                  <div className="col s6 offset-s3" style={{position: 'relative'}}>
+                  <div className="col s8 offset-s2" style={{position: 'relative'}}>
                     <div className="divider" style={{backgroundColor: '#ff6600'}}/>
                   </div>
                 </div>
@@ -79,7 +82,7 @@ class Contacto extends Component {
                 </div>
               </div>
               <div className="row center-align" style={{marginBottom: '5px'}}>
-                <div className="col s6 offset-s3" style={{position: 'relative'}}>
+                <div className="col s8 offset-s2" style={{position: 'relative'}}>
                   <div className="divider" style={{backgroundColor: '#ff6600'}}/>
                 </div>
               </div>
@@ -96,11 +99,15 @@ class Contacto extends Component {
               <div style={{height: '100%'}}>
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: process.env.GOOGLEMAPSAPYKEY || keys.googleMapsApiKey,
+                    key: process.env.REACT_APP_GOOGLEMAPSAPYKEY,
                   }}
                   defaultCenter={this.props.center}
                   defaultZoom={this.props.zoom}
                 >
+                  <MapPin
+                    lat={-33.020062}
+                    lng={-71.551258}
+                  />
                 </GoogleMapReact>
               </div>
             </div>

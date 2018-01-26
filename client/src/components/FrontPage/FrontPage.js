@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Responsive from 'react-responsive';
 
 import ScrollingColorBackground from 'react-scrolling-color-background';
-import pin from '../../media/photos/pin.png';
+import pin from '../../media/photos/pin.webp';
 
 import Parallax from './Parallax';
 import Servicios from './Servicios';
@@ -16,7 +16,7 @@ import Clientes from './Clientes';
 import Equipo from './Equipo';
 import Contacto from './Contacto';
 
-import logo from '../../media/photos/logo.png';
+import logo from '../../media/photos/logo.webp';
 
 class FrontPage extends Component {
 

@@ -12,7 +12,7 @@ import matchHeight from 'jquery-match-height';
 import GaleryProject from './GaleryProject';
 import ProjectDetailModal from './ProjectDetailModal';
 
-import logo from '../../media/photos/logo.png';
+import logo from '../../media/photos/logo.webp';
 
 class projectsPortafolio extends Component {
 
@@ -98,11 +98,11 @@ class projectsPortafolio extends Component {
 
           <div className="row center-align">
             <div style={{marginTop: '45px', position: 'relative', color: 'white'}}>
-              <h4><b>NUESTROS PROYECTOS</b></h4>
+              <h4><b>ALGUNOS DE NUESTROS PROYECTOS</b></h4>
             </div>
           </div>
           <div className="row center-align">
-            <div className="col s2 offset-s5" style={{marginBottom: '45px', position: 'relative'}}>
+            <div className="col s8 offset-s2" style={{marginBottom: '45px', position: 'relative'}}>
               <div className="divider" style={{backgroundColor: '#ff6600'}}/>
             </div>
           </div>

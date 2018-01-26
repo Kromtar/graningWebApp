@@ -4,15 +4,21 @@ import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 import { Link as RouterLink } from 'react-router-dom';
 
-import proyectoTest from '../../media/photos/proyectoTest.jpg';
-import cota from '../../media/photos/cota.png';
+import proyectoTest from '../../media/photos/proyectoTest.webp';
+import cota from '../../media/photos/cota.webp';
+
+import p1408 from '../../media/photos/galery/1408/1.jpg';
+import p1613 from '../../media/photos/galery/1613/1.jpg';
+import p1703 from '../../media/photos/galery/1703/1.jpg';
+import p1706 from '../../media/photos/galery/1706/1.jpg';
+import p1704 from '../../media/photos/galery/1704/1.jpg';
 
 class Proyectos extends Component {
 
   render(){
 
-    const Mobile = props => <Responsive {...props} maxWidth={767} />;
-    const Default = props => <Responsive {...props} minWidth={768} />;
+    const Mobile = props => <Responsive {...props} maxWidth={992} />;
+    const Default = props => <Responsive {...props} minWidth={993} />;
 
     const desktopVersion = (
       <div className="row">
@@ -23,13 +29,13 @@ class Proyectos extends Component {
           </div>
         </div>
         <div className="row center-align">
-          <div className="col s2 offset-s5" style={{position: 'relative'}}>
+          <div className="col s8 offset-s2" style={{position: 'relative'}}>
             <div className="divider" style={{backgroundColor: '#ff6600'}}/>
           </div>
         </div>
         <div className="row center-align">
           <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px'}}>
-            Algunos de nuestros principales proyectos son:
+            Algunos de nuestros principales proyectos son
           </p>
         </div>
         <div className="row" style={{marginTop: '35px'}}>
@@ -52,30 +58,39 @@ class Proyectos extends Component {
               transitionTime={500}
               emulateTouch
               showStatus={false}
+              dynamicHeight
             >
               <div>
-                  <img alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1408} />
+                  <p className="legend"><b>Abastecimiento de Agua Potable a Sistema APR Valle Hermoso desde la Ligua</b></p>
               </div>
               <div>
-                  <img alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1613} />
+                  <p className="legend"><b>Desarrollo de Estándares de Diseño para Sistemas de Agua Potable y Aguas Servidas - Valparaíso</b></p>
               </div>
               <div>
-                  <img  alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1704} />
+                  <p className="legend"><b>Rediseño Obra de Llegada Conducción Los Aromos-Concón</b></p>
+              </div>
+              <div>
+                  <img  alt="test" src={p1703} />
+                  <p className="legend"><b>Diseño Estación Reguladora de Flujo en Conducción Vigía-Vizcachas</b></p>
+              </div>
+              <div>
+                  <img  alt="test" src={p1706} />
+                  <p className="legend"><b>Diseño y Traslado de EEAS Reñaca y Grupo Generador Asociado</b></p>
               </div>
             </Carousel>
           </div>
         </div>
         <div className="row" style={{marginTop: '50px', marginBottom: '90px'}}>
-          <div className="col s2 offset-s5 center-align">
+          <div className="col s10 offset-s1 center-align">
             <RouterLink
               to={'/portafolio'}
               className="waves-effect btn"
               style={{backgroundColor: '#ff6600'}}
             >
-              todos los proyectos
+              lista de mas proyectos
             </RouterLink>
           </div>
         </div>
@@ -91,13 +106,13 @@ class Proyectos extends Component {
           </div>
         </div>
         <div className="row center-align">
-          <div className="col s2 offset-s5" style={{position: 'relative'}}>
+          <div className="col s8 offset-s2" style={{position: 'relative'}}>
             <div className="divider" style={{backgroundColor: '#ff6600'}}/>
           </div>
         </div>
         <div className="row center-align">
           <p className="flow-text" style={{marginLeft: '40px', marginRight: '40px'}}>
-            Algunos de nuestros principales proyectos son:
+            Algunos de nuestros principales proyectos son
           </p>
         </div>
         <div className="row" style={{marginTop: '35px'}}>
@@ -110,18 +125,27 @@ class Proyectos extends Component {
               transitionTime={500}
               emulateTouch
               showStatus={false}
+              dynamicHeight
             >
               <div>
-                  <img alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1408} />
+                  <p className="legend"><b>Abastecimiento de Agua Potable a Sistema APR Valle Hermoso desde la Ligua</b></p>
               </div>
               <div>
-                  <img alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1613} />
+                  <p className="legend"><b>Desarrollo de Estándares de Diseño para Sistemas de Agua Potable y Aguas Servidas - Valparaíso</b></p>
               </div>
               <div>
-                  <img alt="test" src={proyectoTest} />
-                  <p className="legend"><b>Este es un proyecto con escripcion muy bonita pero tiene un trampolin muy grande</b></p>
+                  <img alt="test" src={p1704} />
+                  <p className="legend"><b>Rediseño Obra de Llegada Conducción Los Aromos-Concón</b></p>
+              </div>
+              <div>
+                  <img  alt="test" src={p1703} />
+                  <p className="legend"><b>Diseño Estación Reguladora de Flujo en Conducción Vigía-Vizcachas</b></p>
+              </div>
+              <div>
+                  <img  alt="test" src={p1706} />
+                  <p className="legend"><b>Diseño y Traslado de EEAS Reñaca y Grupo Generador Asociado</b></p>
               </div>
             </Carousel>
           </div>
@@ -133,7 +157,7 @@ class Proyectos extends Component {
               className="waves-effect btn"
               style={{backgroundColor: '#ff6600'}}
             >
-              todos los proyectos
+              lista de mas proyectos
             </RouterLink>
           </div>
         </div>

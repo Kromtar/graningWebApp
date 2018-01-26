@@ -5,7 +5,7 @@ import Responsive from 'react-responsive';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 
-import portada from '../../media/photos/portada.png';
+import portada from '../../media/photos/portada.webp';
 
 class Parallax extends Component {
 
