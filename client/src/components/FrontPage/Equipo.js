@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 import $ from 'jquery';
-
 import Fade from 'react-reveal/Fade';
 
-import plano from '../../media/photos/plano.webp';
-import equipo from '../../media/photos/team.webp';
-import pin from '../../media/photos/pin.webp';
-import perfil from '../../media/photos/perfil.webp';
+import supportsWebP from 'supports-webp';
+
+var plano, equipo, pin, perfil;
+if(supportsWebP) {
+  pin = require('../../media/photos/pin.webp');
+  plano = require('../../media/photos/plano.webp');
+  equipo = require('../../media/photos/team.webp');
+  perfil = require('../../media/photos/perfil.webp');
+}else{
+  pin = require('../../media/photos/pin.png');
+  plano = require('../../media/photos/plano.png');
+  equipo = require('../../media/photos/team.png');
+  perfil = require('../../media/photos/perfil.png');
+}
 
 class Equipo extends Component {
 

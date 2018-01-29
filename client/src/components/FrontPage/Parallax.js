@@ -5,7 +5,14 @@ import Responsive from 'react-responsive';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 
-import portada from '../../media/photos/portada.webp';
+import supportsWebP from 'supports-webp';
+
+var portada;
+if(supportsWebP) {
+  portada = require('../../media/photos/portada.webp');
+}else{
+  portada = require('../../media/photos/portada.png');
+}
 
 class Parallax extends Component {
 
@@ -41,7 +48,7 @@ class Parallax extends Component {
             </div>
           </div>
         </div>
-        <div className="parallax"><img alt="mainphoto" src={portada}/></div>
+        <div className="parallax"><img alt="mainphoto" src={portada} /></div>
       </div>
     );
 

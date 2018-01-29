@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import $ from 'jquery';
-
-
 import * as actions from '../../actions';
-import proyectoTest from '../../media/photos/proyectoTest.webp';
+
+import Image from 'react-image-webp';
+import supportsWebP from 'supports-webp';
+
+var dummy;
+if(supportsWebP) {
+  dummy = require('../../media/photos/dummy.webp');
+}else{
+  dummy = require('../../media/photos/dummy.png');
+}
 
 class GaleryProject extends Component {
 
   renderFronImg(){
     try{
-      return <img style={{minWidth: '100%'}} alt="hidro" className="activator" src={require(`../../media/photos/galery/${this.props.project.internalcode}/1.jpg`)}/>;
+      return <Image
+        style={{minWidth: '100%'}}
+        alt="hidro"
+        className="activator"
+        src={require(`../../media/photos/galery/${this.props.project.internalcode}/1.jpg`)}
+        webp={require(`../../media/photos/galery/${this.props.project.internalcode}/1.webp`)}
+      />;
     }catch(err){
-      return <img alt="test" src={proyectoTest} />;
+      return <Image alt="test" src={dummy} />;
     }
   }
 
@@ -68,9 +81,4 @@ class GaleryProject extends Component {
   }
 };
 
-function mapStateToProps(state){
-  return {
-  };
-};
-
-export default connect(mapStateToProps, actions)(GaleryProject);
+export default connect(null, actions)(GaleryProject);

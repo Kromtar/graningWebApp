@@ -3,9 +3,15 @@ import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Link as RouterLink } from 'react-router-dom';
-import Responsive from 'react-responsive';
 
-import logo from '../../media/photos/logo.webp';
+import supportsWebP from 'supports-webp';
+
+var logo;
+if(supportsWebP) {
+  logo = require('../../media/photos/logo.webp');
+}else{
+  logo = require('../../media/photos/logo.png');
+}
 
 class LoginForm extends Component {
 
@@ -16,9 +22,7 @@ class LoginForm extends Component {
   render(){
 
     const onClickLogin = (credentials) => {
-      //TODO: Validar datos
-      //      Feedback de errores
-      //      Feedback de login en proceso
+      //TODO: Validar datos, agregar feedback
       this.props.loginUser(credentials);
     }
 

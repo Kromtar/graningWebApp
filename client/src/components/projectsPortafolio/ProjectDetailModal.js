@@ -3,7 +3,15 @@ import { connect } from 'react-redux';
 import { Carousel } from 'react-responsive-carousel';
 import Responsive from 'react-responsive';
 
-import proyectoTest from '../../media/photos/proyectoTest.webp';
+import supportsWebP from 'supports-webp';
+import Image from 'react-image-webp';
+
+var dummy;
+if(supportsWebP) {
+  dummy = require('../../media/photos/dummy.webp');
+}else{
+  dummy = require('../../media/photos/dummy.png');
+}
 
 class deleteProjectConfirmModal extends Component {
 
@@ -17,10 +25,14 @@ class deleteProjectConfirmModal extends Component {
 
   renderImg(number){
     try{
-      return <img alt="test" src={require(`../../media/photos/galery/${this.props.projectDetailSelected.internalcode}/${number}.webp`)} />;
+      return <Image
+        alt="test"
+        webp={require(`../../media/photos/galery/${this.props.projectDetailSelected.internalcode}/${number}.webp`)}
+        src={require(`../../media/photos/galery/${this.props.projectDetailSelected.internalcode}/${number}.jpg`)}
+      />;
     }catch(err){
       console.log(err);
-      return <img alt="test" src={proyectoTest} />;
+      return <img alt="test" src={dummy} />;
     }
   }
 
@@ -35,7 +47,7 @@ class deleteProjectConfirmModal extends Component {
         emulateTouch
         showStatus={false}
       >
-        {typeof(this.props.projectDetailSelected) === 'undefined' ? <img alt="test" src={proyectoTest} /> : this.renderCarousel(this.props.projectDetailSelected.numberOfImg)}
+        {typeof(this.props.projectDetailSelected) === 'undefined' ? <img alt="test" src={dummy} /> : this.renderCarousel(this.props.projectDetailSelected.numberOfImg)}
       </Carousel>
     );
   }
@@ -127,7 +139,6 @@ class deleteProjectConfirmModal extends Component {
 };
 
 function mapStateToProps(state){
-  console.log(state);
   return {
     projectDetailSelected: state.projectDetailSelected.projectSelected,
   };

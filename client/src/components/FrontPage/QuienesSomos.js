@@ -5,7 +5,14 @@ import Zoom from 'react-reveal/Zoom';
 import matchHeight from 'jquery-match-height';
 import $ from 'jquery';
 
-import nosotros from '../../media/photos/nosotros.webp';
+import supportsWebP from 'supports-webp';
+
+var nosotros;
+if(supportsWebP) {
+  nosotros = require('../../media/photos/nosotros.webp');
+}else{
+  nosotros = require('../../media/photos/nosotros.png');
+}
 
 class QuienesSomos extends Component {
 

@@ -4,14 +4,25 @@ import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 import { Link as RouterLink } from 'react-router-dom';
 
-import proyectoTest from '../../media/photos/proyectoTest.webp';
-import cota from '../../media/photos/cota.webp';
+import supportsWebP from 'supports-webp';
 
-import p1408 from '../../media/photos/galery/1408/1.jpg';
-import p1613 from '../../media/photos/galery/1613/1.jpg';
-import p1703 from '../../media/photos/galery/1703/1.jpg';
-import p1706 from '../../media/photos/galery/1706/1.jpg';
-import p1704 from '../../media/photos/galery/1704/1.jpg';
+var cota, p1408, p1613, p1703, p1706, p1704;
+if(supportsWebP) {
+  cota = require('../../media/photos/cota.webp');
+  p1408 = require('../../media/photos/galery/1408/1.webp');
+  p1613 = require( '../../media/photos/galery/1613/1.webp');
+  p1703 = require('../../media/photos/galery/1703/1.webp');
+  p1706 = require('../../media/photos/galery/1706/1.webp');
+  p1704 = require('../../media/photos/galery/1704/1.webp');
+}else{
+  cota = require('../../media/photos/cota.png');
+  p1408 = require('../../media/photos/galery/1408/1.jpg');
+  p1613 = require( '../../media/photos/galery/1613/1.jpg');
+  p1703 = require('../../media/photos/galery/1703/1.jpg');
+  p1706 = require('../../media/photos/galery/1706/1.jpg');
+  p1704 = require('../../media/photos/galery/1704/1.jpg');
+}
+
 
 class Proyectos extends Component {
 

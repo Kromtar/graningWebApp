@@ -12,7 +12,14 @@ import matchHeight from 'jquery-match-height';
 import GaleryProject from './GaleryProject';
 import ProjectDetailModal from './ProjectDetailModal';
 
-import logo from '../../media/photos/logo.webp';
+import supportsWebP from 'supports-webp';
+
+var logo;
+if(supportsWebP) {
+  logo = require('../../media/photos/logo.webp');
+}else{
+  logo = require('../../media/photos/logo.png');
+}
 
 class projectsPortafolio extends Component {
 

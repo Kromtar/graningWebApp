@@ -3,12 +3,22 @@ import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
 
 import Fade from 'react-reveal/Fade';
+import supportsWebP from 'supports-webp';
 
-import essbio from '../../media/photos/essbio.webp';
-import esval from '../../media/photos/esval.webp';
-import aguasdelvalle from '../../media/photos/aguasdelvalle.webp';
-import aguasaraucania from '../../media/photos/aguasaraucania.webp';
-import aguasdelaltiplano from '../../media/photos/aguasdelaltiplano.webp';
+var essbio, esval, aguasdelvalle, aguasaraucania, aguasdelaltiplano;
+if(supportsWebP) {
+  essbio = require('../../media/photos/essbio.webp');
+  esval = require('../../media/photos/esval.webp');
+  aguasdelvalle = require('../../media/photos/aguasdelvalle.webp');
+  aguasaraucania = require('../../media/photos/aguasaraucania.webp');
+  aguasdelaltiplano = require('../../media/photos/aguasdelaltiplano.webp');
+}else{
+  essbio = require('../../media/photos/essbio.png');
+  esval = require('../../media/photos/esval.png');
+  aguasdelvalle = require('../../media/photos/aguasdelvalle.png');
+  aguasaraucania = require('../../media/photos/aguasaraucania.png');
+  aguasdelaltiplano = require('../../media/photos/aguasdelaltiplano.png');
+}
 
 class Clientes extends Component {
 

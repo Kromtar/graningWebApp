@@ -8,12 +8,13 @@ exports.ensureAuth = function (req, res, next) {
     return res.status(403).send({ message: 'Missing Header' });
   }
 
-  const token = req.headers.auth.replace(/["']/g, ''); //Eliminamos comillas del header auth
+  //Eliminamos comillas del header auth
+  const token = req.headers.auth.replace(/["']/g, '');
 
   try {
-    const payload = jwt.decode(token, secret);  //Decodificando token
-    req.user = payload; //Dejamos disponible el contenido del payload
-    if (payload.exp <= moment().unix()) {       //Verificamos tiempo
+    const payload = jwt.decode(token, secret);
+    req.user = payload;
+    if (payload.exp <= moment().unix()) {
       return res.status(401).send({ message: 'Expired Token' });
     }
   } catch (ex) {

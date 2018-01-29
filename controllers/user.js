@@ -3,106 +3,92 @@ const jwt = require('../services/jwt');
 
 const User = mongoose.model('users');
 
+//Crea un nuevo usuario
 async function createUser(req, res) {
-  //TODO:
-  //Validar parametros (en particular y conjunto)
-  //Considerar errores
-  //Que se realice la peticion por denegacion de servicio
-
   const params = req.body;
-
-  const user = new User({
-    name: params.name,
-    email: params.email,
-    role:  params.role,
-    surname: params.surname,
-    address:  params.address,
-    department: params.department,
-    company: params.company,
-    phone1: params.phone1,
-    phone2: params.phone2,
-    creationDate: Date.now(),
-    workstation: params.workstation
-  });
-  user.password = user.generateHash(params.password);
   try {
-    await user.save();
-    res.send({});
+    const user = new User({
+      name: params.name,
+      email: params.email,
+      role:  params.role,
+      surname: params.surname,
+      address:  params.address,
+      department: params.department,
+      company: params.company,
+      phone1: params.phone1,
+      phone2: params.phone2,
+      creationDate: Date.now(),
+      workstation: params.workstation
+    });
+    user.password = user.generateHash(params.password);
+    const newUser = await user.save();
+    res.status(200).send(newUser);
   } catch(err){
-    //TODO: Buscar error de respuesta
-    res.status(422).send(err);
+    res.status(404).send(err);
   }
 }
 
-function loginUser(req, res) {
-  //Validar parametros (en particular y conjunto)
-  //Considerar errores
-  //Que se realice la peticion por denegacion de servicio
-  //Es necesario agregar el await ?
+//Login de usuario
+async function loginUser(req, res) {
 
   const params = req.body;
   const email = params.email;
   const password = params.password;
   const getToken = params.getToken;
 
-
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      res.status(500).send({ message: 'DB connection error' });
-    } else if (!user) {
-      res.status(404).send({ message: 'Invalid user' });
-    } else if (!user.validPassword(password)) {
-      res.status(401).send({ message: 'Invalid password' });
-    } else if (getToken) {
-      //Retorna el token JWT
-      res.status(200).send({
-        token: jwt.createToken(user)
-      });
-    } else {
-      //Retorna el objeto de user
-      res.status(200).send({ user });
-    }
-  });
-}
-
-function loginUserAdmin(req, res) {
-  //Validar parametros (en particular y conjunto)
-  //Considerar errores
-  //Que se realice la peticion por denegacion de servicio
-  //Es necesario agregar el await ?
-
-  const params = req.body;
-  const email = params.email;
-  const password = params.password;
-  const getToken = params.getToken;
-
-
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      res.status(500).send({ message: 'DB connection error' });
-    } else if (!user) {
-      res.status(404).send({ message: 'Invalid user' });
-    } else if (!user.validPassword(password)) {
-      res.status(401).send({ message: 'Invalid password' });
-    } else if (getToken) {
-      //Retorna el token JWT
-      if(user.role !== 'ADMIN'){
-        res.status(404).send({ message: 'Invalid user' });
-      }else{
-        res.status(200).send({
-          token: jwt.createToken(user)
-        });
+  try {
+    const userLogin = await User.findOne({email});
+    if(userLogin){
+      if(userLogin.validPassword(password)){
+        if(getToken){
+          res.status(200).send({
+            token: jwt.createToken(userLogin)
+          });
+        }else{
+          res.status(200).send({});
+        }
       }
-    } else {
-      //Retorna el objeto de user
-      res.status(200).send({ user });
+    }else{
+      res.status(401).send(err);
     }
-  });
+  } catch(err){
+    res.status(404).send(err);
+  }
 }
 
+//Login de usuario admin
+async function loginUserAdmin(req, res) {
 
+  const params = req.body;
+  const email = params.email;
+  const password = params.password;
+  const getToken = params.getToken;
+
+  try {
+    const userLogin = await User.findOne({email});
+    if(userLogin){
+      if(userLogin.role === 'ADMIN'){
+        if(userLogin.validPassword(password)){
+          if(getToken){
+            res.status(200).send({
+              token: jwt.createToken(userLogin)
+            });
+          }else{
+            res.status(200).send({});
+          }
+        }
+      }
+    }else{
+      res.status(401).send(err);
+    }
+  } catch(err){
+    res.status(404).send(err);
+  }
+
+}
+
+//Lista todos los clientes
 async function getAllClientsUsers(req, res) {
-  //TODO:Agregar error si no logra conectarse a la db
   try {
     const clientsUsers = await User.find(
       { role: 'CLIENT' },
@@ -118,97 +104,103 @@ async function getAllClientsUsers(req, res) {
         email: 1
       }
     );
-    res.send(clientsUsers);
+    res.status(200).send(clientsUsers);
   } catch(err){
-    //TODO: Buscar error de respuesta
-    res.status(422).send(err);
+    res.status(404).send(err);
   }
 }
 
+//Obtiene los detalles de un cliente
 async function getClientDetail(req, res){
-  //TODO:Manejo de errores
-  const user = await User.findOne({ _id: req.headers.id }).populate({path: '_projects' });
-  //res.send(project);
-  res.send(user);
+  try{
+    const user = await User.findOne({ _id: req.headers.id }).populate({path: '_projects' });
+    res.status(200).send(user);
+  } catch(err){
+    res.status(404).send(err);
+  }
 }
 
+//Añade un projecto a un cliente
 async function addProjectToClient(req, res){
 
-  const update = await User.updateOne(
-  {
-    _id: req.body.clientId
-  },
-  {
-   $push: {
-     _projects: req.body.projectId
-   }
+  try {
+    const update = await User.updateOne(
+    {
+      _id: req.body.clientId
+    },
+    {
+     $push: {
+       _projects: req.body.projectId
+     }
+    }
+    ).exec();
+    res.status(200).send(update);
+  } catch(err){
+    res.status(404).send(err);
   }
-  ).exec();
 
-  res.send({});
 }
 
+//Remueve un projecto de un cliente
 async function removeProjectToClient(req, res){
 
-
-  const update = await User.updateOne(
-  {
-    _id: req.body.clientId
-  },
-  {
-   $pull: {
-     _projects: req.body.projectId
-   }
+  try{
+    const update = await User.updateOne(
+    {
+      _id: req.body.clientId
+    },
+    {
+     $pull: {
+       _projects: req.body.projectId
+     }
+    }
+    ).exec();
+    res.status(200).send(update);
+  } catch(err){
+    res.status(404).send(err);
   }
-  ).exec();
-
-
-  res.send({});
 
 }
-
 
 //Edita la informacion general de un cliente
 async function updateClientGeneral(req, res){
-  User.findByIdAndUpdate(req.headers.id, req.body, (err, updateUser) => {
-    if(err){
-      res.status(500).send({ message: 'Error en la peticion' });
-    }else{
-      if(!updateUser){
-        res.status(404).send({ message: 'No se pudo updatear el user en la db' });
-      }else{
-        res.status(200).send(updateUser);
-      }
-    }
-  });
+  try {
+    const clientUpdated = await User.findByIdAndUpdate(req.body.id, req.body.values);
+    res.status(200).send(clientUpdated);
+  } catch(err){
+    res.status(404).send(err);
+  }
 }
 
 //Cambia la contraseña de un usuario
 async function changePassword(req, res){
-
-  const user = new User();
-  passwordHash = user.generateHash(req.body.pass);
-
-  const userPasswordUpdate = await User.updateOne(
-  {
-    _id: req.headers.id
-  },
-  {
-   $set: {
-     'password': passwordHash,
-   }
+  try {
+    const user = new User();
+    passwordHash = user.generateHash(req.body.pass);
+    const userPasswordUpdate = await User.updateOne(
+    {
+      _id: req.body.id
+    },
+    {
+     $set: {
+       'password': passwordHash,
+     }
+    }
+    ).exec();
+    res.status(200).send(userPasswordUpdate);
+  } catch(err){
+    res.status(404).send(err);
   }
-  ).exec();
-
-  res.send({});
 }
 
 //Elimina un usuario
 async function deleteUser(req, res){
-
-  const userDelete = await User.remove({ '_id':req.headers.id })
-
-  res.send({});
+  try {
+    const userDelete = await User.remove({ '_id':req.headers.id })
+    res.status(200).send(userDelete);
+  } catch(err){
+    res.status(404).send(err);
+  }
 }
 
 module.exports = {

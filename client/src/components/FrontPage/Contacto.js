@@ -4,9 +4,17 @@ import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import Responsive from 'react-responsive';
 
-import footerimg from '../../media/photos/footerImg.webp';
-import pin from '../../media/photos/pin.webp';
+import supportsWebP from 'supports-webp';
 import MapPin from './auxComponents/mapPin';
+
+var footerimg, pin;
+if(supportsWebP) {
+  footerimg = require('../../media/photos/footerImg.webp');
+  pin = require('../../media/photos/pin.webp');
+}else{
+  footerimg = require('../../media/photos/footerImg.png');
+  pin = require('../../media/photos/pin.png');
+}
 
 class Contacto extends Component {
 

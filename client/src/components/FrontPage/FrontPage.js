@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { Link, Element } from 'react-scroll'
 import { Link as RouterLink } from 'react-router-dom';
 import Responsive from 'react-responsive';
-
 import ScrollingColorBackground from 'react-scrolling-color-background';
-import pin from '../../media/photos/pin.webp';
+
+import supportsWebP from 'supports-webp';
 
 import Parallax from './Parallax';
 import Servicios from './Servicios';
@@ -16,7 +16,14 @@ import Clientes from './Clientes';
 import Equipo from './Equipo';
 import Contacto from './Contacto';
 
-import logo from '../../media/photos/logo.webp';
+var logo, pin;
+if(supportsWebP) {
+  logo = require('../../media/photos/logo.webp');
+  pin = require('../../media/photos/pin.webp');
+}else{
+  logo = require('../../media/photos/logo.png');
+  pin = require('../../media/photos/pin.png');
+}
 
 class FrontPage extends Component {
 

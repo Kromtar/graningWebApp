@@ -62,7 +62,7 @@ class ProjectList extends Component {
           </div>
         </div>
 
-        {/*TODO: El selector de columnos no se despliega*/}
+        {/*TODO: El selector de numero de filas no se despliega*/}
         {/* Tabla */}
         <ReactTable
           data={data}

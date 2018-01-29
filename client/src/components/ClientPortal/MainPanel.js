@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Link as RouterLink } from 'react-router-dom';
 
-import logo from '../../media/photos/logo.webp';
 import ProjectList from './ProjectList';
 import ProjectDetail from './ProjectDetail';
+
+import supportsWebP from 'supports-webp';
+
+var logo;
+if(supportsWebP) {
+  logo = require('../../media/photos/logo.webp');
+}else{
+  logo = require('../../media/photos/logo.png');
+}
 
 class MainPanel extends Component {
 

@@ -173,3 +173,7 @@ input {
 .slider li {
   background: #fafafa !important;
 }
+
+body{
+  position: relative;
+}

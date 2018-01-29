@@ -41,12 +41,11 @@ app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 });
 
-mongoose.connect(process.env.MONGODBURL.concat(process.env.DBNAME), {}, (err) => {
+mongoose.connect(process.env.MONGODBURI, {}, (err) => {
   if (err) {
     throw err;
   } else {
     console.log('Mongo conection OK');
-
     app.listen(process.env.SERVERPORT, () => {
       console.log('Server ON, port:', process.env.SERVERPORT);
       console.log('The environment is', process.env.NODE_ENV);

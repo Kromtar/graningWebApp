@@ -10,7 +10,7 @@ const filterStyle = {
 const columns = [{
   Header: 'Nº de proyecto',
   maxWidth: 150,
-  accessor: 'proyectnumber', // String-based value accessors!
+  accessor: 'proyectnumber',
   Filter: ({filter, onChange}) => (
     <input
       onChange={event => onChange(event.target.value)}
@@ -20,7 +20,7 @@ const columns = [{
 },{
   Header: 'Nº Orden de compra',
   maxWidth: 150,
-  accessor: 'purchaseordernumber', // String-based value accessors!
+  accessor: 'purchaseordernumber',
   Filter: ({filter, onChange}) => (
     <input
       onChange={event => onChange(event.target.value)}
@@ -30,7 +30,7 @@ const columns = [{
 },{
   Header: 'Nº de Contrato',
   maxWidth: 150,
-  accessor: 'contractnumber', // String-based value accessors!
+  accessor: 'contractnumber',
   Filter: ({filter, onChange}) => (
     <input
       onChange={event => onChange(event.target.value)}
@@ -39,7 +39,7 @@ const columns = [{
   )
 },{
   Header: 'Nombre del proyecto',
-  accessor: 'name', // String-based value accessors!
+  accessor: 'name',
   Filter: ({filter, onChange}) => (
     <input
       onChange={event => onChange(event.target.value)}

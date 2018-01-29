@@ -10,10 +10,11 @@ import {
   FETCH_PROJECTDETAIL
 } from './types';
 
-//Login de Usuario a la API
+//Login de Usuario
+//TODO: CONFIGURAR TOKEN
 export const loginUser = (credentials) => async (dispatch) => {
 
-    credentials.getToken = true; //TODO: Momentaneo para que la API nos retorne un Token y no el objeto de usuario
+    credentials.getToken = true;
 
     try {
       const res = await axios.post('/api/loginUser', credentials);
@@ -31,14 +32,16 @@ export const loginUser = (credentials) => async (dispatch) => {
       });
       dispatch({ type: LOGIN_USER_STATUS_CHANGE, payload: {status: true, token: res.data.token, userId: decodeToken.id} });
     } catch (err) {
-      console.log(err); //TODO:Manejo de error con mensaje
+      console.log(err);
     }
 };
 
+//LogOut de usuario
 export const logOutUser = () => dispatch => {
   dispatch({ type: LOGIN_USER_STATUS_CHANGE, payload: false });
 };
 
+//Realiza un login con el token de una cookie
 export const loginFromCookie = (token) => async (dispatch) => {
   const decodeToken = jwtDecode(token);
 
@@ -52,11 +55,14 @@ export const loginFromCookie = (token) => async (dispatch) => {
   }
 };
 
+//LogOut general para todos los combineReducers
+//TODO: Utilizar la action logOutUser para este proposito
 export const logOut = () => (dispatch) => {
   cookie.remove('token', { path: '/' })
   dispatch({ type: LOG_OUT, payload: {status: false, token: '', userId: ''} });
 }
 
+//Obtiene los detalles de un cliente
 export const getClientDetail = (token, userId) => async (dispatch) =>{
   try {
     const resU = await axios.get('/api/getClientDetail', { headers: { auth: token, id: userId } });
@@ -66,6 +72,7 @@ export const getClientDetail = (token, userId) => async (dispatch) =>{
   }
 };
 
+//Obtiene los detalles de un proyecto
 //TODO: Verificar en backend que el proyecto sea del usuario
 export const getProjectDetail = (token, proyectId) => async (dispatch) =>{
   try {

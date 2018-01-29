@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom'; //para manejo de ventanas dentro de la APP
-import { connect } from 'react-redux';  //Para compatiilidad
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import FrontPage from './FrontPage/FrontPage';
 import ClientPortal from './ClientPortal/ClientPortal';

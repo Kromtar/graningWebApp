@@ -7,10 +7,11 @@ exports.ensureRole = function (req, res, next) {
     return res.status(403).send({ message: 'Missing Header' });
   }
 
-  const token = req.headers.auth.replace(/["']/g, ''); //Eliminamos comillas del header auth
+  //Eliminamos comillas del header auth
+  const token = req.headers.auth.replace(/["']/g, '');
 
   try {
-    const payload = jwt.decode(token, secret);  //Decodificando token
+    const payload = jwt.decode(token, secret);
     if (payload.role !== 'ADMIN') {
       return res.status(404).send({ message: 'Invalid User Role' });
     }

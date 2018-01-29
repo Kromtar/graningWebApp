@@ -1,5 +1,9 @@
-async function getDropboxKey(req, res) {
-  res.send(process.env.DROPBOXAPI);
+function getDropboxKey(req, res) {
+  try {
+    res.send(process.env.DROPBOXAPI);
+  } catch (err) {
+    res.status(404).send(err);
+  }
 }
 
 module.exports = {

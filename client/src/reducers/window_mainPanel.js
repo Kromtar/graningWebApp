@@ -1,4 +1,3 @@
-//Almacena una informacion test
 import { WINDOW_MAINPANEL_CHANGE, LOG_OUT } from '../actions/types';
 
 export default function(state = 'list' , action) {

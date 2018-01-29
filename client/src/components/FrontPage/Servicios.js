@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Responsive from 'react-responsive';
-
-import Flip from 'react-reveal/Flip';
 import Zoom from 'react-reveal/Zoom';
 
-import urba from '../../media/photos/urba.webp';
-import hidro from '../../media/photos/hidro.webp';
-import obraAs from '../../media/photos/obraAs.webp';
-import obraAp from '../../media/photos/obraAp.webp';
-import otros from '../../media/photos/otros.webp';
-import vigas from '../../media/photos/vigas.webp';
-import ins from '../../media/photos/ins.webp';
-import pin from '../../media/photos/pin.webp';
-import mode from '../../media/photos/mode.webp';
+import supportsWebP from 'supports-webp';
+
+var urba, hidro, obraAs, obraAp, otros, vigas, ins, mode;
+if(supportsWebP) {
+  urba = require('../../media/photos/urba.webp');
+  hidro = require('../../media/photos/hidro.webp');
+  obraAs = require('../../media/photos/obraAs.webp');
+  obraAp = require('../../media/photos/obraAp.webp');
+  otros = require('../../media/photos/otros.webp');
+  vigas = require('../../media/photos/vigas.webp');
+  ins = require('../../media/photos/ins.webp');
+  mode = require('../../media/photos/mode.webp');
+}else{
+  urba = require('../../media/photos/urba.png');
+  hidro = require('../../media/photos/hidro.png');
+  obraAs = require('../../media/photos/obraAs.png');
+  obraAp = require('../../media/photos/obraAp.png');
+  otros = require('../../media/photos/otros.png');
+  vigas = require('../../media/photos/vigas.png');
+  ins = require('../../media/photos/ins.png');
+  mode = require('../../media/photos/mode.png');
+}
+
+
 
 class Servicios extends Component {
 

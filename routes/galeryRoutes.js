@@ -2,10 +2,17 @@ const authJwt = require('../middlewares/authJwt');
 const roleChecker = require('../middlewares/accountRoleChecker');
 const GaleryController = require('../controllers/galery');
 
-//TODO: Agregar middleware administrador
-
 module.exports = app => {
+  //Open to public
+  app.get(
+    '/api/getGalery',
+    GaleryController.getGalery
+  );
+
+  //Only for Admins
   //TODO: SELLAR
-  app.post('/api/AddProjectToGalery', GaleryController.AddProjectToGalery);
-  app.get('/api/getGalery', GaleryController.getGalery);
+  app.post(
+    '/api/AddProjectToGalery',
+    GaleryController.AddProjectToGalery
+  );
 };
