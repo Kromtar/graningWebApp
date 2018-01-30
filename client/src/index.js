@@ -15,6 +15,8 @@ import Main from './components/Main';
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-  <Provider store={store}><Main /></Provider>,
+  <Provider store={store}>
+      <Main />
+  </Provider>,
   document.querySelector('#root')
 );

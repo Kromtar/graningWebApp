@@ -30,9 +30,9 @@ class Equipo extends Component {
     const Mobile = props => <Responsive {...props} maxWidth={767} />;
     const Default = props => <Responsive {...props} minWidth={768} />;
 
-    const bioText1 = "“La Eficiencia es una forma de ser”"
-    const bioText2 = "Cuando fundé, hace 25 años, GranIng Ingeniería , me puse una meta: “Ser la Consultora en Ingeniería más Eficiente de la Quinta Región”. Desde el primer día, junto a quienes me han acompañado, hemos respetado esta idea básica, porque entendimos que era la mejor manera de competir en un mercado tan exigente, donde el error o la incompetencia, se pagan muy caro.";
-    const bioText3 = "Esta filosofía siempre ha estado presente, en cada uno de nuestros actos y por supuesto en cada uno de los profesionales que forman GranIng Ingeniería.";
+    const bioText1 = "Nos espera un futuro promisorio de crecimiento y mejora."
+    const bioText2 = "Hace más más de 10 años, fundamos GranIng Ingeniería, con el sentir de entregar un gran servicio en el ámbito de la ingeniería, enfocado en nuestros clientes, ya sea empresas o personas, optimizando soluciones, aplicando tecnologías e innovando con nuevas ideas. Lo anterior no sería completo, sin tener en el horizonte, la vista amplia que la ingeniería es un arte, un arte al servicio de la sociedad y de cada una de las personas que la componen.";
+    const bioText3 = "Hoy ya hemos posicionado nuestra marca en el mercado local, con algunos proyectos internacionales, reconocidos por nuestra pasión y alta especialización técnica.";
 
     const desktopVersion = (
       <div>
@@ -66,9 +66,9 @@ class Equipo extends Component {
 
 
             <div className="col s9 left-align matchHeight" style={{color: 'white'}}>
-              <h5><p style={{position: 'relative'}}>{bioText1}</p></h5>
               <p className="flow-text" style={{position: 'relative'}}>{bioText2}</p>
               <p className="flow-text" style={{position: 'relative'}}>{bioText3}</p>
+              <h5><p style={{position: 'relative'}}>{bioText1}</p></h5>
             </div>
 
         </div>
@@ -110,9 +110,9 @@ class Equipo extends Component {
             </div>
 
             <div className="col s12 center-align" style={{color: 'white'}}>
-              <h5><p>{bioText1}</p></h5>
               <p className="flow-text">{bioText2}</p>
               <p className="flow-text">{bioText3}</p>
+              <h5><p>{bioText1}</p></h5>
             </div>
 
         </div>

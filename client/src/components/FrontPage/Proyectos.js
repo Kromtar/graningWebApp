@@ -85,7 +85,7 @@ class Proyectos extends Component {
               </div>
               <div>
                   <img  alt="test" src={p1703} />
-                  <p className="legend"><b>Diseño Estación Reguladora de Flujo en Conducción Vigía-Vizcachas</b></p>
+                  <p className="legend"><b>Incorporación de Sistema de Respaldo en 55 Estaciones Elevadoras de Agua Potable</b></p>
               </div>
               <div>
                   <img  alt="test" src={p1706} />

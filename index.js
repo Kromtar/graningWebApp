@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const sslRedirect = require('heroku-ssl-redirect');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -12,6 +13,8 @@ require('./models/Review');
 require('./models/Galery');
 
 const app = express();
+
+app.use(sslRedirect());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');

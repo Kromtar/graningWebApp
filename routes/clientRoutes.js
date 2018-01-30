@@ -17,9 +17,10 @@ module.exports = app => {
     roleChecker.ensureRole,
     UserController.getAllClientsUsers
   );
-  //TODO: SELLAR
   app.post(
     '/api/createUser',
+    authJwt.ensureAuth,
+    roleChecker.ensureRole,
     UserController.createUser
   );
   app.post(

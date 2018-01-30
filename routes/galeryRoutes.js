@@ -10,9 +10,10 @@ module.exports = app => {
   );
 
   //Only for Admins
-  //TODO: SELLAR
   app.post(
     '/api/AddProjectToGalery',
+    authJwt.ensureAuth,
+    roleChecker.ensureRole,
     GaleryController.AddProjectToGalery
   );
 };

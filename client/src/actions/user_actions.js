@@ -28,7 +28,8 @@ export const loginUser = (credentials) => async (dispatch) => {
       cookie.save('token', res.data.token, {
         path: '/',
         expires,
-        maxAge: 60 * 60 * 24
+        maxAge: 60 * 60 * 24,
+        secure: true,
       });
       dispatch({ type: LOGIN_USER_STATUS_CHANGE, payload: {status: true, token: res.data.token, userId: decodeToken.id} });
     } catch (err) {

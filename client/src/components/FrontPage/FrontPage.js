@@ -82,6 +82,15 @@ class FrontPage extends Component {
                       PORTAL CLIENTE
                     </RouterLink>
                   </li>
+                  <li>
+                    <a
+                      target={'_blank'}
+                      href={'https://servercl07.outservers.net:2096/'}
+                      style={{color: '#00305b'}}
+                    >
+                      WEBMAIL
+                    </a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -135,6 +144,15 @@ class FrontPage extends Component {
                 <Link style={{color: '#00305b'}} to="test5" spy={true} smooth={'easeInCubic'} offset={-88} duration={500} isDynamic={true}>
                   CONTACTO
                 </Link>
+              </li>
+              <li>
+                <a
+                  target={'_blank'}
+                  href={'https://servercl07.outservers.net:2096/'}
+                  style={{color: '#00305b'}}
+                >
+                  WEBMAIL
+                </a>
               </li>
             </ul>
           </Mobile>
