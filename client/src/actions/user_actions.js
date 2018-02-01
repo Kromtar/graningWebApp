@@ -29,7 +29,7 @@ export const loginUser = (credentials) => async (dispatch) => {
         path: '/',
         expires,
         maxAge: 60 * 60 * 24,
-        secure: true,
+        secure: true
       });
       dispatch({ type: LOGIN_USER_STATUS_CHANGE, payload: {status: true, token: res.data.token, userId: decodeToken.id} });
     } catch (err) {

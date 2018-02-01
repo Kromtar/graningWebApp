@@ -9,14 +9,14 @@ import supportsWebP from 'supports-webp';
 var cota, p1408, p1613, p1703, p1706, p1704;
 if(supportsWebP) {
   cota = require('../../media/photos/cota.webp');
-  p1408 = require('../../media/photos/galery/1408/1.webp');
+  p1408 = require('../../media/photos/galery/1408/3.webp');
   p1613 = require( '../../media/photos/galery/1613/1.webp');
   p1703 = require('../../media/photos/galery/1703/1.webp');
   p1706 = require('../../media/photos/galery/1706/1.webp');
   p1704 = require('../../media/photos/galery/1704/1.webp');
 }else{
   cota = require('../../media/photos/cota.png');
-  p1408 = require('../../media/photos/galery/1408/1.jpg');
+  p1408 = require('../../media/photos/galery/1408/3.jpg');
   p1613 = require( '../../media/photos/galery/1613/1.jpg');
   p1703 = require('../../media/photos/galery/1703/1.jpg');
   p1706 = require('../../media/photos/galery/1706/1.jpg');
@@ -73,7 +73,7 @@ class Proyectos extends Component {
             >
               <div>
                   <img alt="test" src={p1408} />
-                  <p className="legend"><b>Abastecimiento de Agua Potable a Sistema APR Valle Hermoso desde la Ligua</b></p>
+                  <p className="legend"><b>Reemplazo sifón El Cedro, acueducto Vas Vegas. Quilpué</b></p>
               </div>
               <div>
                   <img alt="test" src={p1613} />
@@ -140,7 +140,7 @@ class Proyectos extends Component {
             >
               <div>
                   <img alt="test" src={p1408} />
-                  <p className="legend"><b>Abastecimiento de Agua Potable a Sistema APR Valle Hermoso desde la Ligua</b></p>
+                  <p className="legend"><b>Reemplazo sifón El Cedro, acueducto Vas Vegas. Quilpué</b></p>
               </div>
               <div>
                   <img alt="test" src={p1613} />

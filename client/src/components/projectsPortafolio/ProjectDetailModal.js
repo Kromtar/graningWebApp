@@ -61,14 +61,22 @@ class deleteProjectConfirmModal extends Component {
               <b>{this.props.projectDetailSelected.name}</b>
             </div>
             <div className="col s12 l2" style={{marginBottom: '5px'}}>
-              <b>Contratista: {this.props.projectDetailSelected.company}</b>
+              <b>Cliente: {this.props.projectDetailSelected.company}</b>
             </div>
             <div className="col s12 l2" style={{marginBottom: '5px'}}>
               <b>Año: {this.props.projectDetailSelected.year}</b>
             </div>
           </div>
+          <div className="divider"/>
+          <p className="flow-text row center-align" style={{fontSize: '1.2rem'}}>
+            <b>Alcances</b>
+          </p>
           <p className="flow-text row center-align" style={{fontSize: '1.2rem'}}>
             {this.props.projectDetailSelected.description}
+          </p>
+          <div className="divider"/>
+          <p className="flow-text row center-align" style={{fontSize: '1.2rem'}}>
+            <b>Obras Proyectadas</b>
           </p>
           <p className="flow-text row center-align" style={{fontSize: '1.2rem'}}>
             {this.props.projectDetailSelected.work}

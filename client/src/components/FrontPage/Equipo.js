@@ -31,7 +31,7 @@ class Equipo extends Component {
     const Default = props => <Responsive {...props} minWidth={768} />;
 
     const bioText1 = "Nos espera un futuro promisorio de crecimiento y mejora."
-    const bioText2 = "Hace más más de 10 años, fundamos GranIng Ingeniería, con el sentir de entregar un gran servicio en el ámbito de la ingeniería, enfocado en nuestros clientes, ya sea empresas o personas, optimizando soluciones, aplicando tecnologías e innovando con nuevas ideas. Lo anterior no sería completo, sin tener en el horizonte, la vista amplia que la ingeniería es un arte, un arte al servicio de la sociedad y de cada una de las personas que la componen.";
+    const bioText2 = "Hace más de 10 años, fundamos GranIng Ingeniería, con el sentir de entregar un gran servicio en el ámbito de la ingeniería, enfocado en nuestros clientes, ya sea empresas o personas, optimizando soluciones, aplicando tecnologías e innovando con nuevas ideas. Lo anterior no sería completo, sin tener en el horizonte, la vista amplia que la ingeniería es un arte, un arte al servicio de la sociedad y de cada una de las personas que la componen.";
     const bioText3 = "Hoy ya hemos posicionado nuestra marca en el mercado local, con algunos proyectos internacionales, reconocidos por nuestra pasión y alta especialización técnica.";
 
     const desktopVersion = (
@@ -68,7 +68,7 @@ class Equipo extends Component {
             <div className="col s9 left-align matchHeight" style={{color: 'white'}}>
               <p className="flow-text" style={{position: 'relative'}}>{bioText2}</p>
               <p className="flow-text" style={{position: 'relative'}}>{bioText3}</p>
-              <h5><p style={{position: 'relative'}}>{bioText1}</p></h5>
+              <p className="flow-text" style={{position: 'relative'}}>{bioText1}</p>
             </div>
 
         </div>
@@ -112,7 +112,7 @@ class Equipo extends Component {
             <div className="col s12 center-align" style={{color: 'white'}}>
               <p className="flow-text">{bioText2}</p>
               <p className="flow-text">{bioText3}</p>
-              <h5><p>{bioText1}</p></h5>
+              <p className="flow-text">{bioText1}</p>
             </div>
 
         </div>
