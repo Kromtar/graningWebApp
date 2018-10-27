@@ -5,13 +5,12 @@ import Zoom from 'react-reveal/Zoom';
 
 import supportsWebP from 'supports-webp';
 
-var urba, hidro, obraAs, obraAp, otros, vigas, ins, mode;
+var urba, hidro, obraAs, obraAp, vigas, ins, mode;
 if(supportsWebP) {
   urba = require('../../media/photos/urba.webp');
   hidro = require('../../media/photos/hidro.webp');
   obraAs = require('../../media/photos/obraAs.webp');
   obraAp = require('../../media/photos/obraAp.webp');
-  otros = require('../../media/photos/otros.webp');
   vigas = require('../../media/photos/vigas.webp');
   ins = require('../../media/photos/ins.webp');
   mode = require('../../media/photos/mode.webp');
@@ -20,7 +19,6 @@ if(supportsWebP) {
   hidro = require('../../media/photos/hidro.png');
   obraAs = require('../../media/photos/obraAs.png');
   obraAp = require('../../media/photos/obraAp.png');
-  otros = require('../../media/photos/otros.png');
   vigas = require('../../media/photos/vigas.png');
   ins = require('../../media/photos/ins.png');
   mode = require('../../media/photos/mode.png');
@@ -181,26 +179,6 @@ class Servicios extends Component {
                 </div>
               </Zoom>
             </div>
-            <div className="col s6 m6 l4 offset-l4 xl3">
-              <Zoom delay={2000}>
-                <div className="card hoverable" style={{width: '100%'}}>
-                  <div className="card-image waves-effect waves-block waves-light">
-                    <img alt="test" className="activator" src={otros}/>
-                  </div>
-                  <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>
-                  </div>
-                  <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4">OTROS<i className="material-icons right">arrow_downward</i></span>
-                    <ul style={{marginTop: '25px'}}>
-                      <li><div id="dot"/>Proyectos de canales y obras de arte</li>
-                      <li><div id="dot"/>Diseño arquitectónico y estructural de obras de acero y hormigón armado</li>
-                      <li><div id="dot"/>Proyectos de respaldo eléctricos</li>
-                    </ul>
-                  </div>
-                </div>
-              </Zoom>
-            </div>
           </div>
         </div>
       </div>
@@ -337,25 +315,6 @@ class Servicios extends Component {
               </div>
             </div>
           </div>
-          <div className="col s12">
-            <div className="card hoverable" style={{width: '100%'}}>
-              <div className="card-image waves-effect waves-block waves-light">
-                <img alt="test" className="activator" src={otros}/>
-              </div>
-              <div className="card-content">
-                <span className="card-title activator grey-text text-darken-4">OTROS<i className="material-icons right">arrow_upward</i></span>
-              </div>
-              <div className="card-reveal">
-                <span className="card-title grey-text text-darken-4">OTROS<i className="material-icons right">arrow_downward</i></span>
-                <ul style={{marginTop: '25px'}}>
-                  <li><div id="dot"/>Proyectos de canales y obras de arte</li>
-                  <li><div id="dot"/>Diseño arquitectónico y estructural de obras de acero y hormigón armado</li>
-                  <li><div id="dot"/>Proyectos de respaldo eléctricos</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     );

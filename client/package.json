@@ -13,7 +13,7 @@
     "jquery": "^3.2.1",
     "jquery-match-height": "^0.7.2",
     "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.11",
     "materialize-css": "^0.100.2",
     "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
